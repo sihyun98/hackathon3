@@ -26,6 +26,10 @@ public class Stock {
 	private double earningRate;
 	private String assertType;
 	
+	private String isuSrtCd;
+	private String isuKorNm;
+	
+	
 	@Override
 	public String toString() {
 	    return "Stock{" + "id=" + this.id + ", balanceNo='" + this.balanceNo + '\''

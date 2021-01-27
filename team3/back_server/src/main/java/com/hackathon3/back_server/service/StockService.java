@@ -45,6 +45,8 @@ public class StockService {
 				dto.setValTrade(stock.getValTrade());
 				dto.setEarningRate(stock.getEarningRate());
 				dto.setAssertType(stock.getAssertType());
+				dto.setIsuKorNm(stock.getIsuKorNm());
+				dto.setIsuSrtCd(stock.getIsuSrtCd());
 				
 				stockSearchResponseDto.add(dto);
 				

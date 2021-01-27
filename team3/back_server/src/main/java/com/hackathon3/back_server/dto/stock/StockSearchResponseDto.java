@@ -16,5 +16,7 @@ public class StockSearchResponseDto {
 	private int valTrade;
 	private double earningRate;
 	private String assertType;
+	private String isuSrtCd;
+	private String isuKorNm;
 
 }

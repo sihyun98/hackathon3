@@ -25,7 +25,7 @@ class LoadDatabase {
 //		  StockRepository stockRepository;
 
 	      return args -> {
-	    	  
+	    	  	    	  
 	    	  //Member
 	    	  Member member1 = new Member();
 	    	  member1.setName("차예린");
@@ -275,6 +275,8 @@ class LoadDatabase {
 	    	  stock1_1.setQty(82);
 	    	  stock1_1.setValTrade(40000);
 	    	  stock1_1.setAssertType("주식");
+	    	  stock1_1.setIsuSrtCd("005930");
+	    	  stock1_1.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock1_1));
 	    	  
 	    	  Stock stock1_2 = new Stock();
