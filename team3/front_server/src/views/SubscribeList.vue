@@ -184,7 +184,7 @@
                   </v-card-title>
                   <v-data-table 
                   :headers="headers"
-                  :items="desserts"
+                  :items="subscribes"
                   :search="search"
                   @click:row="handleClick"
                   >                  
@@ -290,90 +290,91 @@ export default {
       { text: '이동', value: 'move', align: "center" },
       
     ],
-    desserts: [
-      {
-        id: '2',
-        name: '윤하은',
-        grade: 'LV.2 초개미',
-        investOpt: '단타위주',
-        ranking: '2위',
-        earningRate: '25.71%',
-        move: '놀러가기',
-      },
-      {
-        id: '3',
-        name: '안기현',
-        grade: 'LV3. 노개미',
-        investOpt: '투자주식',
-        ranking: '3위',
-        earningRate: '25.71%',
-        move: '놀러가기',
-      },
-      {
-        id: '4',
-        name: '조태율',
-        grade: 'LV4. 빨개미',
-        investOpt: '투자주식',
-        ranking: '4위',
-        earningRate: '25.71%',
-        move: '놀러가기',
-      },
-      {
-        id: '5',
-        name: '노영록',
-        grade: 'LV.1 파개미',
-        investOpt: '투자주식',
-        ranking: '5위',
-        earningRate: '25.71%',
-        move: '놀러가기',
-      },
-      {
-        id: '6',
-        name: '이예은',
-        grade: 'LV.2 초개미',
-        investOpt: '투자주식',
-        ranking: '6위',
-        earningRate: '25.71%',
-        move: '놀러가기',
-      },
-      {
-        id: '7',
-        name: '이영인',
-        grade: 'LV3. 노개미',
-        investOpt: '투자주식',
-        ranking: '7위',
-        earningRate: '25.71%',
-        move: '놀러가기',
-      },
-      {
-        id: '8',
-        name: '박용수',
-        grade: 'LV4. 빨개미',
-        investOpt: '위험은조금만',
-        ranking: '8위',
-        earningRate: '25.71%',
-        move: '놀러가기',
-      },
-      {
-        id: '9',
-        name: '김태현',
-        grade: 'LV.1 파개미',
-        investOpt: '위험은조금만',
-        ranking: '9위',
-        earningRate: '25.71%',
-        move: '놀러가기',
-      },
-      {
-        id: '10',
-        name: '김수아',
-        grade: 'LV.2 초개미',
-        investOpt: '투자주식',
-        ranking: '10위',
-        earningRate: '25.71%',
-        move: '놀러가기',
-      },
+    subscribes: [],
+    // desserts: [
+    //   {
+    //     id: '2',
+    //     name: '윤하은',
+    //     grade: 'LV.2 초개미',
+    //     investOpt: '단타위주',
+    //     ranking: '2위',
+    //     earningRate: '25.71%',
+    //     move: '놀러가기',
+    //   },
+    //   {
+    //     id: '3',
+    //     name: '안기현',
+    //     grade: 'LV3. 노개미',
+    //     investOpt: '투자주식',
+    //     ranking: '3위',
+    //     earningRate: '25.71%',
+    //     move: '놀러가기',
+    //   },
+    //   {
+    //     id: '4',
+    //     name: '조태율',
+    //     grade: 'LV4. 빨개미',
+    //     investOpt: '투자주식',
+    //     ranking: '4위',
+    //     earningRate: '25.71%',
+    //     move: '놀러가기',
+    //   },
+    //   {
+    //     id: '5',
+    //     name: '노영록',
+    //     grade: 'LV.1 파개미',
+    //     investOpt: '투자주식',
+    //     ranking: '5위',
+    //     earningRate: '25.71%',
+    //     move: '놀러가기',
+    //   },
+    //   {
+    //     id: '6',
+    //     name: '이예은',
+    //     grade: 'LV.2 초개미',
+    //     investOpt: '투자주식',
+    //     ranking: '6위',
+    //     earningRate: '25.71%',
+    //     move: '놀러가기',
+    //   },
+    //   {
+    //     id: '7',
+    //     name: '이영인',
+    //     grade: 'LV3. 노개미',
+    //     investOpt: '투자주식',
+    //     ranking: '7위',
+    //     earningRate: '25.71%',
+    //     move: '놀러가기',
+    //   },
+    //   {
+    //     id: '8',
+    //     name: '박용수',
+    //     grade: 'LV4. 빨개미',
+    //     investOpt: '위험은조금만',
+    //     ranking: '8위',
+    //     earningRate: '25.71%',
+    //     move: '놀러가기',
+    //   },
+    //   {
+    //     id: '9',
+    //     name: '김태현',
+    //     grade: 'LV.1 파개미',
+    //     investOpt: '위험은조금만',
+    //     ranking: '9위',
+    //     earningRate: '25.71%',
+    //     move: '놀러가기',
+    //   },
+    //   {
+    //     id: '10',
+    //     name: '김수아',
+    //     grade: 'LV.2 초개미',
+    //     investOpt: '투자주식',
+    //     ranking: '10위',
+    //     earningRate: '25.71%',
+    //     move: '놀러가기',
+    //   },
       
-    ],
+    // ],
 
     name: '',
     username: '',
@@ -387,7 +388,7 @@ export default {
     profile: '',
   }),
   
-  created(){
+  async created(){
     // console.log("hi");
     axios.get('/api/member/search/1')
       .then(res => {
@@ -405,6 +406,20 @@ export default {
       .catch(err => {
         console.log('err', err);
       })
+
+// subscribers list
+
+      // await axios.get('/api/member/likes/1')
+      // .then(res => {
+      //   const msg = res.data;
+      //   this.subscribes = msg;
+      //   for(var i=0; i<this.subscribes.length; i++){
+      //     // this.subscribes[i].valTrade = priceComma(this.subscribes[i].valTrade);
+      //   }
+      // })
+      // .catch(err => {
+      //   console.log('err', err);
+      // })
   },
 
   methods: {

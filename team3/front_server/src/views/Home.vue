@@ -587,6 +587,26 @@ export default {
     .then(res => {
       this.Stock[0].isuKorNm = res.data.isuKorNm;
     })
+
+    await axios.get('/api/stock/code/search/' + this.Stock[1].isuSrtCd)
+    .then(res => {
+      this.Stock[1].isuKorNm = res.data.isuKorNm;
+    })
+
+    await axios.get('/api/stock/code/search/' + this.Stock[2].isuSrtCd)
+    .then(res => {
+      this.Stock[2].isuKorNm = res.data.isuKorNm;
+    })
+
+    await axios.get('/api/stock/code/search/' + this.Stock[3].isuSrtCd)
+    .then(res => {
+      this.Stock[3].isuKorNm = res.data.isuKorNm;
+    })
+
+    await axios.get('/api/stock/code/search/' + this.Stock[4].isuSrtCd)
+    .then(res => {
+      this.Stock[4].isuKorNm = res.data.isuKorNm;
+    })
         
 
   },

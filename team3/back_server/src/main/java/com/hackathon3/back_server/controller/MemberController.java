@@ -71,4 +71,10 @@ public class MemberController {
 	public MemberDeleteResponseDto delete(@PathVariable Long id) {
 	    return memberService.delete(id);
 	}
+	
+	// DELETE - subscribers list
+//	@DeleteMapping("/api/member/{id}")
+//	public MemberDeleteResponseDto delete(@PathVariable Long id) {
+//	    return memberService.delete(id);
+//	}
 }
