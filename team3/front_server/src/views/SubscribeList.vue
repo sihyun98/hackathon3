@@ -409,17 +409,17 @@ export default {
 
 // subscribers list
 
-      // await axios.get('/api/member/likes/1')
-      // .then(res => {
-      //   const msg = res.data;
-      //   this.subscribes = msg;
-      //   for(var i=0; i<this.subscribes.length; i++){
-      //     // this.subscribes[i].valTrade = priceComma(this.subscribes[i].valTrade);
-      //   }
-      // })
-      // .catch(err => {
-      //   console.log('err', err);
-      // })
+      await axios.get('/api/member/likes/1')
+      .then(res => {
+        const msg = res.data;
+        this.subscribes = msg;
+        for(var i=0; i<this.subscribes.length; i++){
+          this.subscribes[i].valTrade = priceComma(this.subscribes[i].valTrade);
+        }
+      })
+      .catch(err => {
+        console.log('err', err);
+      })
   },
 
   methods: {

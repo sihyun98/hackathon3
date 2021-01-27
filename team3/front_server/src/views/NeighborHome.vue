@@ -477,7 +477,7 @@ export default {
         text: '타입',
         align: 'start',
         sortable: false,
-        value: 'type',
+        value: 'assertType',
       },
       { text: '종목', value: 'stockNm' },
       { text: '평가금액', value: 'valEvalu' },
@@ -565,8 +565,8 @@ export default {
         this.age = res.data.age,
         this.job = res.data.job,
         this.investOpt = res.data.investOpt,
-        this.salary = res.data.salary,
-        this.property = res.data.property,
+        this.salary = priceComma(res.data.salary),
+        this.property = priceComma(res.data.property),
         this.profile = res.data.profile
         console.log(this.name);
       })

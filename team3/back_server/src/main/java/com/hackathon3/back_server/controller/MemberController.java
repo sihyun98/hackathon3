@@ -19,9 +19,11 @@ import com.hackathon3.back_server.dto.member.MemberSigninRequestDto;
 import com.hackathon3.back_server.dto.member.MemberSigninResponseDto;
 import com.hackathon3.back_server.dto.member.MemberUpdateRequestDto;
 import com.hackathon3.back_server.dto.member.MemberUpdateResponseDto;
+import com.hackathon3.back_server.dto.stock.StockSearchResponseDto;
 import com.hackathon3.back_server.exception.MemberNotFoundException;
 import com.hackathon3.back_server.repository.MemberRepository;
 import com.hackathon3.back_server.service.MemberService;
+import com.hackathon3.back_server.service.SubscribeService;
 
 @RestController
 public class MemberController {
@@ -29,10 +31,12 @@ public class MemberController {
 	private final MemberRepository repository;
 	
 	private final MemberService memberService;
+	private final SubscribeService subscribeService;
 
-	MemberController(MemberRepository repository, MemberService memberService) {
+	MemberController(MemberRepository repository, MemberService memberService, SubscribeService subscribeService) {
 	    this.repository = repository;
 		this.memberService = memberService;
+		this.subscribeService = subscribeService;
 	}
 	
 	// SEARCH
@@ -72,9 +76,9 @@ public class MemberController {
 	    return memberService.delete(id);
 	}
 	
-	// DELETE - subscribers list
-//	@DeleteMapping("/api/member/{id}")
-//	public MemberDeleteResponseDto delete(@PathVariable Long id) {
-//	    return memberService.delete(id);
-//	}
+	// SEARCH - subscribers list
+	@GetMapping("/api/member/likes/{id}")
+	public List<MemberSearchResponseDto> search(@PathVariable Long id){
+		return subscribeService.likes(id);
+	}
 }
