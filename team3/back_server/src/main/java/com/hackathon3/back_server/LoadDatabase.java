@@ -59,7 +59,7 @@ class LoadDatabase {
 	    	  Member member3 = new Member();
 	    	  member3.setName("안기현");
 	    	  member3.setUsername("koscom3");
-	    	  member3.setPassword("1234");
+	    	  member3.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member3.setGrade("LV.1 파개미");
 	    	  member3.setAge(29);
 	    	  member3.setJob("교직");
@@ -72,7 +72,7 @@ class LoadDatabase {
 	    	  Member member4 = new Member();
 	    	  member4.setName("조태율");
 	    	  member4.setUsername("koscom4");
-	    	  member4.setPassword("1234");
+	    	  member4.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member4.setGrade("LV.1 파개미");
 	    	  member4.setAge(29);
 	    	  member4.setJob("관리직");
@@ -85,7 +85,7 @@ class LoadDatabase {
 	    	  Member member5 = new Member();
 	    	  member5.setName("노영록");
 	    	  member5.setUsername("koscom5");
-	    	  member5.setPassword("1234");
+	    	  member5.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member5.setGrade("LV.1 파개미");
 	    	  member5.setAge(27);
 	    	  member5.setJob("사무직");
@@ -98,7 +98,7 @@ class LoadDatabase {
 	    	  Member member6 = new Member();
 	    	  member6.setName("이예은");
 	    	  member6.setUsername("koscom6");
-	    	  member6.setPassword("1234");
+	    	  member6.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member6.setGrade("LV.1 파개미");
 	    	  member6.setAge(29);
 	    	  member6.setJob("자영업");
@@ -111,7 +111,7 @@ class LoadDatabase {
 	    	  Member member7 = new Member();
 	    	  member7.setName("이영인");
 	    	  member7.setUsername("koscom7");
-	    	  member7.setPassword("1234");
+	    	  member7.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member7.setGrade("LV.1 파개미");
 	    	  member7.setAge(29);
 	    	  member7.setJob("판매직");
@@ -124,7 +124,7 @@ class LoadDatabase {
 	    	  Member member8 = new Member();
 	    	  member8.setName("박용수");
 	    	  member8.setUsername("koscom8");
-	    	  member8.setPassword("1234");
+	    	  member8.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member8.setGrade("LV.1 파개미");
 	    	  member8.setAge(28);
 	    	  member8.setJob("서비스직");
@@ -137,7 +137,7 @@ class LoadDatabase {
 	    	  Member member9 = new Member();
 	    	  member9.setName("김태현");
 	    	  member9.setUsername("koscom9");
-	    	  member9.setPassword("1234");
+	    	  member9.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member9.setGrade("LV.1 파개미");
 	    	  member9.setAge(22);
 	    	  member9.setJob("학생");
@@ -150,7 +150,7 @@ class LoadDatabase {
 	    	  Member member10 = new Member();
 	    	  member10.setName("김수아");
 	    	  member10.setUsername("koscom10");
-	    	  member10.setPassword("1234");
+	    	  member10.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member10.setGrade("LV.1 파개미");
 	    	  member10.setAge(29);
 	    	  member10.setJob("전문직");
@@ -164,7 +164,7 @@ class LoadDatabase {
 	    	  Member member11 = new Member();
 	    	  member11.setName("윤성수");
 	    	  member11.setUsername("koscom11");
-	    	  member11.setPassword("1234");
+	    	  member11.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member11.setGrade("LV.2 초개미");
 	    	  member11.setAge(34);
 	    	  member11.setJob("자영업");
@@ -177,7 +177,7 @@ class LoadDatabase {
 	    	  Member member12 = new Member();
 	    	  member12.setName("박창재");
 	    	  member12.setUsername("koscom12");
-	    	  member12.setPassword("1234");
+	    	  member12.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member12.setGrade("LV.2 초개미");
 	    	  member12.setAge(32);
 	    	  member12.setJob("전문직");
@@ -190,7 +190,7 @@ class LoadDatabase {
 	    	  Member member13 = new Member();
 	    	  member13.setName("박선영");
 	    	  member13.setUsername("koscom13");
-	    	  member13.setPassword("1234");
+	    	  member13.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member13.setGrade("LV.2 초개미");
 	    	  member13.setAge(30);
 	    	  member13.setJob("서비스직");
@@ -203,7 +203,7 @@ class LoadDatabase {
 	    	  Member member14 = new Member();
 	    	  member14.setName("정유리");
 	    	  member14.setUsername("koscom14");
-	    	  member14.setPassword("1234");
+	    	  member14.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member14.setGrade("LV.2 초개미");
 	    	  member14.setAge(28);
 	    	  member14.setJob("자영업");
@@ -216,7 +216,7 @@ class LoadDatabase {
 	    	  Member member15 = new Member();
 	    	  member15.setName("김동식");
 	    	  member15.setUsername("koscom15");
-	    	  member15.setPassword("1234");
+	    	  member15.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member15.setGrade("LV.2 초개미");
 	    	  member15.setAge(35);
 	    	  member15.setJob("전문직");
@@ -229,7 +229,7 @@ class LoadDatabase {
 	    	  Member member16 = new Member();
 	    	  member16.setName("노민우");
 	    	  member16.setUsername("koscom16");
-	    	  member16.setPassword("1234");
+	    	  member16.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member16.setGrade("LV.3 노개미");
 	    	  member16.setAge(35);
 	    	  member16.setJob("서비스직");
@@ -242,7 +242,7 @@ class LoadDatabase {
 	    	  Member member17 = new Member();
 	    	  member17.setName("장혜민");
 	    	  member17.setUsername("koscom17");
-	    	  member17.setPassword("1234");
+	    	  member17.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member17.setGrade("LV.3 노개미");
 	    	  member17.setAge(31);
 	    	  member17.setJob("전문직");
@@ -255,7 +255,7 @@ class LoadDatabase {
 	    	  Member member18 = new Member();
 	    	  member18.setName("정규동");
 	    	  member18.setUsername("koscom18");
-	    	  member18.setPassword("1234");
+	    	  member18.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member18.setGrade("LV.4 빨개미");
 	    	  member18.setAge(32);
 	    	  member18.setJob("서비스직");
@@ -293,6 +293,8 @@ class LoadDatabase {
 	    	  stock1_2.setValTrade(90000);
 	    	  stock1_2.setValCur(83000);
 	    	  stock1_2.setAssertType("주식");
+	    	  stock1_2.setIsuSrtCd("008770");
+	    	  stock1_2.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock1_2));
 	    	  
 	    	  Stock stock1_3 = new Stock();
@@ -305,6 +307,8 @@ class LoadDatabase {
 	    	  stock1_3.setValTrade(310000);
 	    	  stock1_3.setValCur(340000);
 	    	  stock1_3.setAssertType("주식");
+	    	  stock1_3.setIsuSrtCd("035420");
+	    	  stock1_3.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock1_3));
 	    	  
 	    	  Stock stock1_4 = new Stock();
@@ -317,6 +321,8 @@ class LoadDatabase {
 	    	  stock1_4.setValTrade(350000);
 	    	  stock1_4.setValCur(450000);
 	    	  stock1_4.setAssertType("주식");
+	    	  stock1_4.setIsuSrtCd("035720");
+	    	  stock1_4.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock1_4));
 	    	  
 	    	  Stock stock1_5 = new Stock();
@@ -329,6 +335,8 @@ class LoadDatabase {
 	    	  stock1_5.setValTrade(182000);
 	    	  stock1_5.setValCur(207000);
 	    	  stock1_5.setAssertType("주식");
+	    	  stock1_5.setIsuSrtCd("352820");
+	    	  stock1_5.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock1_5));
 	    	  
 	    	  
@@ -343,6 +351,8 @@ class LoadDatabase {
 	    	  stock2_1.setValTrade(780000);
 	    	  stock2_1.setValCur(789000);
 	    	  stock2_1.setAssertType("주식");
+	    	  stock2_1.setIsuSrtCd("006400");
+	    	  stock2_1.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock2_1));
 	    	  
 	    	  Stock stock2_2 = new Stock();
@@ -355,6 +365,8 @@ class LoadDatabase {
 	    	  stock2_2.setValTrade(150000);
 	    	  stock2_2.setValCur(149500);
 	    	  stock2_2.setAssertType("주식");
+	    	  stock2_2.setIsuSrtCd("326030");
+	    	  stock2_2.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock2_2));
 
 	    	  Stock stock2_3 = new Stock();
@@ -367,6 +379,8 @@ class LoadDatabase {
 	    	  stock2_3.setValTrade(16000);
 	    	  stock2_3.setValCur(15500);
 	    	  stock2_3.setAssertType("주식");
+	    	  stock2_3.setIsuSrtCd("020560");
+	    	  stock2_3.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock2_3));
 	    	  
 	    	  Stock stock2_4 = new Stock();
@@ -379,6 +393,8 @@ class LoadDatabase {
 	    	  stock2_4.setValTrade(335000);
 	    	  stock2_4.setValCur(340000);
 	    	  stock2_4.setAssertType("주식");
+	    	  stock2_4.setIsuSrtCd("035420");
+	    	  stock2_4.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock2_4));
 	    	  
 	    	  Stock stock2_5 = new Stock();
@@ -391,6 +407,8 @@ class LoadDatabase {
 	    	  stock2_5.setValTrade(160000);
 	    	  stock2_5.setValCur(170000);
 	    	  stock2_5.setAssertType("주식");
+	    	  stock2_5.setIsuSrtCd("");
+	    	  stock2_5.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock2_5));
 	    	  
 	    	  
@@ -405,6 +423,8 @@ class LoadDatabase {
 	    	  stock3_1.setValTrade(78000);
 	    	  stock3_1.setValCur(83000);
 	    	  stock3_1.setAssertType("주식");
+	    	  stock3_1.setIsuSrtCd("008770");
+	    	  stock3_1.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock3_1));
 	    	  
 	    	  Stock stock3_2 = new Stock();
@@ -417,6 +437,8 @@ class LoadDatabase {
 	    	  stock3_2.setValTrade(24000);
 	    	  stock3_2.setValCur(30400);
 	    	  stock3_2.setAssertType("주식");
+	    	  stock3_2.setIsuSrtCd("003490");
+	    	  stock3_2.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock3_2));
 	    	  
 	    	  
@@ -431,6 +453,8 @@ class LoadDatabase {
 	    	  stock4_1.setValTrade(140000);
 	    	  stock4_1.setValCur(89000);
 	    	  stock4_1.setAssertType("주식");
+	    	  stock4_1.setIsuSrtCd("019170");
+	    	  stock4_1.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock4_1));
 	    	  
 	    	  
@@ -445,6 +469,8 @@ class LoadDatabase {
 	    	  stock5_1.setValTrade(360000);
 	    	  stock5_1.setValCur(450000);
 	    	  stock5_1.setAssertType("주식");
+	    	  stock5_1.setIsuSrtCd("035720");
+	    	  stock5_1.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock5_1));
 	    	  
 	    	  //회원6
@@ -458,6 +484,8 @@ class LoadDatabase {
 	    	  stock6_1.setValTrade(330000);
 	    	  stock6_1.setValCur(340000);
 	    	  stock6_1.setAssertType("주식");
+	    	  stock6_1.setIsuSrtCd("035420");
+	    	  stock6_1.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock6_1));
 	    	  
 	    	  //회원7
@@ -471,6 +499,8 @@ class LoadDatabase {
 	    	  stock7_1.setValTrade(75000);
 	    	  stock7_1.setValCur(83000);
 	    	  stock7_1.setAssertType("주식");
+	    	  stock7_1.setIsuSrtCd("008770");
+	    	  stock7_1.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock7_1));
 	    	  
 	    	  //회원8
@@ -484,6 +514,8 @@ class LoadDatabase {
 	    	  stock8_1.setValTrade(78000);
 	    	  stock8_1.setValCur(85600);
 	    	  stock8_1.setAssertType("주식");
+	    	  stock8_1.setIsuSrtCd("005930");
+	    	  stock8_1.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock8_1));
 	    	  
 	    	  Stock stock8_2 = new Stock();
@@ -496,6 +528,8 @@ class LoadDatabase {
 	    	  stock8_2.setValTrade(70000);
 	    	  stock8_2.setValCur(77300);
 	    	  stock8_2.setAssertType("주식");
+	    	  stock8_2.setIsuSrtCd("005935");
+	    	  stock8_2.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock8_2));
 	    	  
 	    	  
@@ -510,6 +544,8 @@ class LoadDatabase {
 	    	  stock9_1.setValTrade(112000);
 	    	  stock9_1.setValCur(89000);
 	    	  stock9_1.setAssertType("주식");
+	    	  stock9_1.setIsuSrtCd("019170");
+	    	  stock9_1.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock9_1));
 	    	  
 	    	  //회원10
@@ -523,6 +559,8 @@ class LoadDatabase {
 	    	  stock10_1.setValTrade(13400);
 	    	  stock10_1.setValCur(13850);
 	    	  stock10_1.setAssertType("주식");
+	    	  stock10_1.setIsuSrtCd("");
+	    	  stock10_1.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock10_1));
 	    	  
 	    	  
@@ -537,6 +575,8 @@ class LoadDatabase {
 	    	  stock11_1.setValTrade(340000);
 	    	  stock11_1.setValCur(450000);
 	    	  stock11_1.setAssertType("주식");
+	    	  stock11_1.setIsuSrtCd("035720");
+	    	  stock11_1.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock11_1));
 	    	  
 	    	  Stock stock11_2 = new Stock();
@@ -549,6 +589,8 @@ class LoadDatabase {
 	    	  stock11_2.setValTrade(260000);
 	    	  stock11_2.setValCur(340000);
 	    	  stock11_2.setAssertType("주식");
+	    	  stock11_2.setIsuSrtCd("035420");
+	    	  stock11_2.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock11_2));
 	    	  
 	    	  
@@ -563,6 +605,8 @@ class LoadDatabase {
 	    	  stock12_1.setValTrade(340000);
 	    	  stock12_1.setValCur(450000);
 	    	  stock12_1.setAssertType("주식");
+	    	  stock12_1.setIsuSrtCd("035720");
+	    	  stock12_1.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock12_1));
 	    	  
 	    	  Stock stock12_2 = new Stock();
@@ -575,6 +619,8 @@ class LoadDatabase {
 	    	  stock12_2.setValTrade(340000);
 	    	  stock12_2.setValCur(450000);
 	    	  stock12_2.setAssertType("주식");
+	    	  stock12_2.setIsuSrtCd("035720");
+	    	  stock12_2.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock12_2));
 	    	  
 	    	  
