@@ -19,11 +19,13 @@ public class Stock {
 	
 //	private Long memberId;
 	
-	private String firmNm;
-	private String stockNm;
-	private int qty;
-	private int valTrade;
-	private double earningRate;
+	private String isuSrtCd; //주식코드
+	private String firmNm; //증권사이름
+	private String stockNm; //주식이름
+	private int qty; // 종목 수
+	private int valTrade; // 매입가
+	private int valCur; // 현재가
+	private double earningRate; // 수익률
 	private String assertType;
 	
 	private String isuSrtCd;
@@ -35,6 +37,7 @@ public class Stock {
 	    return "Stock{" + "id=" + this.id + ", balanceNo='" + this.balanceNo + '\''
 	    		+ ", firmNm='" + this.firmNm + '\'' + ", stockNm='" + this.stockNm + '\'' 
 	    		+ ", qty='" + this.qty + '\'' + ", valTrade='" + this.valTrade + '\''
+	    		+ ", valCur='" + this.valCur + '\''
 	    		+ ", earningRate='" + this.earningRate + '\'' + ", earningRate='" + this.earningRate + '\'' 
 	    		+ ", assertType='" + this.assertType + '}';
 	}

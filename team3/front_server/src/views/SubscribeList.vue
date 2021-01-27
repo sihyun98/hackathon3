@@ -14,9 +14,9 @@
                 </v-avatar>
 
                 <!-- 이름: 회원DB NAME -->            
-                <v-card-title class="layout justify-center">{{ loginId }} 차예린</v-card-title>
+                <v-card-title class="layout justify-center">{{ name }}</v-card-title>
                 <!-- 나이, 직업: 회원DB -->
-                <v-card-subtitle class="layout justify-center">28세, 사무직</v-card-subtitle>
+                <v-card-subtitle class="layout justify-center">{{age}}세, {{job}}</v-card-subtitle>
                 <v-list class="mt-n5">
                   <v-list-item>
                     <!-- 순위, 구독자, 수익률: TEXT  -->
@@ -59,13 +59,27 @@
                 <v-list two-line="" subheader="">
                   <v-list-item>
                     <!-- 레벨에 따라서 이미지 변경 필요 : if문 -->
-                    <v-list-item-avatar size="50">
-                      <img src="../assets/imglv1.png">
+                    <v-list-item-avatar size="80">
+                      <div v-if="grade === 'LV.1 파개미' ">
+                        <img src="../assets/imglv1.png" >
+                      </div>
+                      <div v-else-if="grade === 'LV.2 초개미' ">
+                        <img src="../assets/imglv2.png">
+                      </div>
+                      <div v-else-if="grade === 'LV.3 노개미' ">
+                        <img src="../assets/imglv3.png">
+                      </div>
+                      <div v-else-if="grade === 'LV.4 빨개미' ">
+                        <img src="../assets/imglv4.png">
+                      </div>
+                      <div v-else>
+                        <img src="../assets/imglv1.png">
+                      </div>
                     </v-list-item-avatar>
                     <v-list-item-content class="ml-n2">
 
                       <!--레벨: 회원 DB -->
-                      <v-list-item-title>LV1. 파개미</v-list-item-title>
+                      <v-list-item-title>{{grade}}</v-list-item-title>
                       <!-- <v-list-item-subtitle>California Hospital Medical</v-list-item-subtitle> -->
                     </v-list-item-content>
                   </v-list-item>
@@ -85,19 +99,19 @@
                   <v-list-item>
                       <v-list-item-avatar size="10" color="orange darken-3"></v-list-item-avatar>
                       <v-list-item-title class="ml-n2">투자성향</v-list-item-title>
-                      <v-list-item-subtitle>단타위주</v-list-item-subtitle>
+                      <v-list-item-subtitle>{{investOpt}}</v-list-item-subtitle>
                   </v-list-item>
 
                   <v-list-item>
                       <v-list-item-avatar size="10" color="orange darken-3"></v-list-item-avatar>
                       <v-list-item-title class="ml-n2">연봉</v-list-item-title>
-                      <v-list-item-subtitle>5,000만원</v-list-item-subtitle>
+                      <v-list-item-subtitle>{{salary}}만원</v-list-item-subtitle>
                   </v-list-item>
 
                   <v-list-item>
                       <v-list-item-avatar size="10" color="orange darken-3"></v-list-item-avatar>
                       <v-list-item-title class="ml-n2">재산</v-list-item-title>
-                      <v-list-item-subtitle>3,000만원</v-list-item-subtitle>
+                      <v-list-item-subtitle>{{property}}만원</v-list-item-subtitle>
                   </v-list-item>
                 
                 <!-- <v-list two-line="" subheader="" class="mt-n5">
@@ -124,7 +138,7 @@
                     <!-- <v-list-item-title class="orange--text text--darken-3">Time</v-list-item-title> -->
                   </v-list-item>
                   <v-list-item class="mt-n10" >
-                    <v-list-item-title >나는야 파개미!! 주식을 좋아하지</v-list-item-title>
+                    <v-list-item-title >{{profile}}</v-list-item-title>
                     <!-- <v-list-item-title >12:45</v-list-item-title> -->
                   </v-list-item>
                   <v-divider></v-divider>
@@ -159,24 +173,26 @@
             <v-row align="center" justify="center">
             <v-col>
                 <v-card>
-                        <v-card-title>
-                        <v-text-field
-                            v-model="search"
-                            append-icon="mdi-magnify"
-                            label="Search"
-                            single-line
-                            hide-details
-                        ></v-text-field>
-                        </v-card-title>
-                        <v-data-table 
-                        :headers="headers"
-                        :items="desserts"
-                        :search="search"
-                        @click:row="handleClick"
-                        ></v-data-table>
-                    </v-card>
+                  <v-card-title>
+                    <v-text-field
+                      v-model="search"
+                      append-icon="mdi-magnify"
+                      label="Search"
+                      single-line
+                      hide-details
+                    ></v-text-field>
+                  </v-card-title>
+                  <v-data-table 
+                  :headers="headers"
+                  :items="desserts"
+                  :search="search"
+                  @click:row="handleClick"
+                  >                  
+                  </v-data-table>
+                        
+                </v-card>
             </v-col>
-        </v-row>
+            </v-row>
         </v-flex>
 <!-- 
   <v-flex class="mt-12">
@@ -251,6 +267,9 @@ export default {
 
 
 <script>
+import axios from 'axios'
+import priceComma from '../priceComma'
+
 export default {
   data: () => ({
 //테이블
@@ -355,8 +374,39 @@ export default {
       },
       
     ],
+
+    name: '',
+    username: '',
+    password: '',
+    grade: '',
+    age: '',
+    job: '',
+    investOpt: '',
+    salary: '',
+    property: '',
+    profile: '',
   }),
   
+  created(){
+    // console.log("hi");
+    axios.get('/api/member/search/1')
+      .then(res => {
+        // console.log(res.data);
+        this.name = res.data.name,
+        this.username = res.data.username,
+        this.grade = res.data.grade,
+        this.age = res.data.age,
+        this.job = res.data.job,
+        this.investOpt = res.data.investOpt,
+        this.salary = priceComma(res.data.salary),
+        this.property = priceComma(res.data.property),
+        this.profile = res.data.profile
+      })
+      .catch(err => {
+        console.log('err', err);
+      })
+  },
+
   methods: {
     handleClick(items){
       this.moveView(items);
