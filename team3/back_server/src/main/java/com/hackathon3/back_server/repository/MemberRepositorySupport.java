@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport
 import org.springframework.stereotype.Repository;
 
 import com.hackathon3.back_server.domain.Member;
+import com.hackathon3.back_server.encoding.PasswordEncoding;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
@@ -22,15 +23,25 @@ public class MemberRepositorySupport extends QuerydslRepositorySupport {
 	public Member searchMember(String username, String password) {
 //		System.out.printf(username);
 //		System.out.printf(password);
+		
+		PasswordEncoding passwordEncoding = new PasswordEncoding();
+		String checkPassword = passwordEncoding.getSha512(password);
+		
 		return queryFactory.selectFrom(member)
 				.where(memberUsernameEq(username))
-				.where(memberPasswordEq(password))
+				.where(memberPasswordEq(checkPassword))
 				.fetchOne();
 	}
 	
 	public Member existMember(String username) {
 		return queryFactory.selectFrom(member)
 				.where(memberUsernameEq(username))
+				.fetchOne();
+	}
+	
+	public Member existMember(Long id) {
+		return queryFactory.selectFrom(member)
+				.where(member.id.eq(id))
 				.fetchOne();
 	}
 	

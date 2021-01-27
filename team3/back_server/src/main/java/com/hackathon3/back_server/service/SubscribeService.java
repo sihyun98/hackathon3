@@ -9,11 +9,17 @@ import org.springframework.transaction.annotation.Transactional;
 import com.hackathon3.back_server.domain.Member;
 import com.hackathon3.back_server.domain.Stock;
 import com.hackathon3.back_server.domain.Subscribe;
+import com.hackathon3.back_server.dto.member.MemberSaveRequestDto;
+import com.hackathon3.back_server.dto.member.MemberSaveResponseDto;
 import com.hackathon3.back_server.dto.member.MemberSearchResponseDto;
 import com.hackathon3.back_server.dto.stock.StockSearchResponseDto;
+import com.hackathon3.back_server.dto.subscribe.SubscribeSaveRequestDto;
+import com.hackathon3.back_server.dto.subscribe.SubscribeSaveResponseDto;
 import com.hackathon3.back_server.repository.MemberRepository;
+import com.hackathon3.back_server.repository.MemberRepositorySupport;
 import com.hackathon3.back_server.repository.StockRepository;
 import com.hackathon3.back_server.repository.StockRepositorySupport;
+import com.hackathon3.back_server.repository.SubscribeRepository;
 import com.hackathon3.back_server.repository.SubscribeRepositorySupport;
 
 import lombok.RequiredArgsConstructor;
@@ -24,7 +30,9 @@ public class SubscribeService {
 	
 	private final MemberRepository memberRepository;
 	private final SubscribeRepositorySupport subscribeRepositorySupport;
+	private final MemberRepositorySupport memberRepositorySupport;
 	private final MemberService memberService;
+	private final SubscribeRepository subscribeRepository;
 	
 	// GET - 구독자 정보 가져오기
 	@Transactional(readOnly = true)
@@ -61,5 +69,29 @@ public class SubscribeService {
 		
 		return subscribeSearchResponseDto;
 	}
+	
+	// POST - 구독
+	@Transactional
+	public SubscribeSaveResponseDto save(Long id, SubscribeSaveRequestDto requestDto) {
+		
+		Member member = memberRepositorySupport.existMember(id);
+  	  	SubscribeSaveResponseDto dto = new SubscribeSaveResponseDto();
 
+		if(member != null) {
+		
+			Subscribe subscribe = new Subscribe();
+			subscribe.setMember(requestDto.getMember());
+			subscribe.setSubscriber_id(requestDto.getSubscriber_id());
+			
+	  	  	Long index = subscribeRepository.save(subscribe).getId();
+	  	  	
+	  	  	dto.setCode("OK");
+	  	  	dto.setMessage(String.valueOf(index));
+		}
+		else {
+			dto.setCode("FAIL");
+	  	  	dto.setMessage(String.valueOf(0));
+		}
+  	  	return dto;
+	}
 }

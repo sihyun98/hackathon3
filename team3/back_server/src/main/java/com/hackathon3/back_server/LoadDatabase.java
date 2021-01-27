@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import com.hackathon3.back_server.domain.Member;
 import com.hackathon3.back_server.domain.Stock;
 import com.hackathon3.back_server.domain.Subscribe;
+import com.hackathon3.back_server.encoding.PasswordEncoding;
 import com.hackathon3.back_server.repository.MemberRepository;
 import com.hackathon3.back_server.repository.StockRepository;
 import com.hackathon3.back_server.repository.SubscribeRepository;
@@ -25,12 +26,14 @@ class LoadDatabase {
 //		  StockRepository stockRepository;
 
 	      return args -> {
-	    	  	    	  
+	    	  
+	    	  PasswordEncoding passwordEncoding = new PasswordEncoding();
+	    	  
 	    	  //Member
 	    	  Member member1 = new Member();
 	    	  member1.setName("차예린");
 	    	  member1.setUsername("koscom1");
-	    	  member1.setPassword("1234");
+	    	  member1.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member1.setGrade("LV.1 파개미");
 	    	  member1.setAge(28);
 	    	  member1.setJob("사무직");
@@ -43,7 +46,7 @@ class LoadDatabase {
 	    	  Member member2 = new Member();
 	    	  member2.setName("윤하은");
 	    	  member2.setUsername("koscom2");
-	    	  member2.setPassword("1234");
+	    	  member2.setPassword(passwordEncoding.getSha512("1234"));
 	    	  member2.setGrade("LV.1 파개미");
 	    	  member2.setAge(28);
 	    	  member2.setJob("전문직");
