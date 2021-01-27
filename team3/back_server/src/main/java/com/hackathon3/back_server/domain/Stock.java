@@ -28,7 +28,7 @@ public class Stock {
 	
 	@Override
 	public String toString() {
-	    return "Stock{" + "id=" + this.id + ", memberId='" + this.member.getId() + ", balanceNo='" + this.balanceNo + '\''
+	    return "Stock{" + "id=" + this.id + ", balanceNo='" + this.balanceNo + '\''
 	    		+ ", firmNm='" + this.firmNm + '\'' + ", stockNm='" + this.stockNm + '\'' 
 	    		+ ", qty='" + this.qty + '\'' + ", valTrade='" + this.valTrade + '\''
 	    		+ ", earningRate='" + this.earningRate + '\'' + ", earningRate='" + this.earningRate + '\'' 

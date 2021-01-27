@@ -25,4 +25,8 @@ public class Subscribe {
 	
 	private Long subscriber_id;
 
+	@Override
+	public String toString() {
+	    return "Subscribe{" + "id=" + this.id + ", subscriber_id='" + this.subscriber_id + '\'' + '}';
+	}
 }
