@@ -28,7 +28,6 @@ public class Stock {
 	private double earningRate; // 수익률
 	private String assertType;
 	
-	private String isuSrtCd;
 	private String isuKorNm;
 	
 	
