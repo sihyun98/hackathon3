@@ -59,9 +59,9 @@
                 <v-list two-line="" subheader="">
                   <v-list-item>
                     <!-- 레벨에 따라서 이미지 변경 필요 : if문 -->
-                    <v-list-item-avatar size="50">
+                    <v-list-item-avatar size="80">
                       <div v-if="grade === 'LV.1 파개미' ">
-                        <img src="../assets/imglv1.png" width="30">
+                        <img src="../assets/imglv1.png">
                       </div>
                       <div v-else-if="grade === 'LV.2 초개미' ">
                         <img src="../assets/imglv2.png">
@@ -163,6 +163,7 @@
                 </v-list-item>
               </v-card>
             </v-flex>
+            
           </v-container>
         </v-app>
       </v-flex>
@@ -308,11 +309,11 @@
         </v-flex> -->
 
         <!-- 중간 그래프(원형 그래프 추가) -------------------------->
-        <v-flex>
+        <!-- <v-flex>
           <v-card>
-            <!-- <v-card-title primary-title>
+             <v-card-title primary-title>
               <span class="grey--text">포트폴리오</span>
-            </v-card-title> -->
+            </v-card-title> 
           <v-card-text>
             <v-progress-circular
             :rotate="-90"
@@ -324,18 +325,24 @@
             </v-progress-circular>
           </v-card-text>
         </v-card>
-
-          <!-- <v-progress-circular 
-          :value=50
-          color="pink lighton-2"
-          size="150"
-          width="15" > 50% </v-progress-circular>
           <h1 class="headline pl-5">$11111</h1>
-          <h6 class="grey--text pl-5">with 25 days</h6> -->
+          <h6 class="grey--text pl-5">with 25 days</h6> 
+        </v-flex> 
+        -->
+
+       <!-- 중간 그래프(파이그래프) -------------------------->
+        <v-flex class="ml-5">
+          <!-- <v-row> -->
+            <v-card>
+              <v-card-text>
+                <pie-chart></pie-chart>
+                </v-card-text>
+            </v-card>
+          <!-- </v-row> -->
         </v-flex>
 
         <!-- 아래 항목명 -------------------------->
-        <v-flex class="mt-5">
+        <!-- <v-flex class="mt-5">
           <v-list class="ml-5">
             <v-list-item>
               <v-list-item-avatar color="orange darken-4" size="20px"></v-list-item-avatar>
@@ -344,55 +351,44 @@
               <v-list-item-title class="ml-5">채권</v-list-item-title>
             </v-list-item>
           </v-list>
-        </v-flex>
-        </v-col>
-        <!-- 오른쪽 -------------------------->
-        <v-col cols="12" md="8">
-          <v-flex class="ml-10">
-            <v-list>
-              <v-list-item>
-                <v-list-item-title class="orange--text text--darken-3">투자 종목 리스트</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-flex>
-          <v-flex class="ml-10">
-            <v-row>
-              <!-- 테이블 -->
-              <!-- <v-data-table
-                :headers="headers"
-                :items="desserts"
-                :items-per-page="5"
-                class="elevation-1"
-              ></v-data-table> -->
-              <v-card>
-                <v-card-title>
-                  <v-text-field
-                    v-model="search"
-                    append-icon="mdi-magnify"
-                    label="Search"
-                    single-line
-                    hide-details
-                  ></v-text-field>
-                </v-card-title>
-                <v-data-table
-                  :headers="headers"
-                  :items="desserts"
-                  :search="search"
-                ></v-data-table>
-              </v-card>
-              <!-- <v-date-picker
-              v-model="date2"
-              :event-color="date => date[9] % 2 ? 'red' : 'yellow'"
-              :events="functionEvents"
-              color="orange darken-3"
-              >
-              </v-date-picker> -->
-            </v-row>
-          </v-flex>
-        </v-col>
+        </v-flex> -->
 
+      </v-col>
+
+      <v-col cols="12" md="8">
+        <!-- 오른쪽 -------------------------->
+        <v-flex class="ml-10">
+          <v-list class="mt-5">
+            <v-list-item>
+              <v-list-item-title class="orange--text text--darken-3">투자 종목 리스트</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-flex>
+
+        <v-flex class="ml-10"> 
+          <v-row>
+            <v-card>
+              <v-card-title>
+                <v-text-field
+                  v-model="search"
+                  append-icon="mdi-magnify"
+                  label="Search"
+                  single-line
+                  hide-details
+                ></v-text-field>
+              </v-card-title>
+              <v-data-table
+                :headers="headers"
+                :items="Stock"
+                :search="search"
+              ></v-data-table>
+            </v-card>
+          </v-row>
+        </v-flex>     
+        
+      </v-col>
+      
     </v-row>
-    prameter : {{neighborId}}
   </v-flex>
 <!-- 
   <v-flex class="mt-12">
@@ -468,6 +464,10 @@ export default {
 
 <script>
 import axios from 'axios'
+import priceComma from '../priceComma'
+import findStock from '../findStock'
+import PieChart from '../components/PieChart'
+
 export default {
   data: () => ({
 //테이블
@@ -487,59 +487,60 @@ export default {
       { text: '매입가', value: 'valTrade' },    
       { text: '현재가', value: 'valstock' },
     ],
-    desserts: [
-      {
-        type: '국내주식',
-        stockNm: '삼성전자',
-        valEvalu: '880,000원',
-        earningRate: '25.71%',
-        profit: '180,000원',
-        qty: 10,
-        valTrade: '70,000원',
-        valstock: '88,000원',
-      },
-      {
-        type: '국내주식',
-        stockNm: '대한항공',
-        valEvalu: '303000원',
-        earningRate: '21.20%',
-        profit: '53,000원',
-        qty: 10,
-        valTrade: '25,000원',
-        valstock: '30,300원',
-      },
-      {
-        type: '국내주식',
-        stockNm: '기아차',
-        valEvalu: '892,000원',
-        earningRate: '4.94%',
-        profit: '42,000원',
-        qty: 10,
-        valTrade: '85,000원',
-        valstock: '89,200원',
-      },
-      {
-        type: '국내주식',
-        stockNm: 'LG전자',
-        valEvalu: '511,500원',
-        earningRate: '3.33%',
-        profit: '16,500원',
-        qty: 3,
-        valTrade: '170,500원',
-        valstock: '495,000원',
-      },
-      {
-        type: '국내주식',
-        stockNm: '현대차',
-        valEvalu: '1,272,500원',
-        earningRate: '10.65%',
-        profit: '122,500원',
-        qty: 5,
-        valTrade: '230,000원',
-        valstock: '254,500원',
-      },
+    Stock: [],
+    // desserts: [
+    //   {
+    //     type: '국내주식',
+    //     stockNm: '삼성전자',
+    //     valEvalu: '880,000원',
+    //     earningRate: '25.71%',
+    //     profit: '180,000원',
+    //     qty: 10,
+    //     valTrade: '70,000원',
+    //     valstock: '88,000원',
+    //   },
+    //   {
+    //     type: '국내주식',
+    //     stockNm: '대한항공',
+    //     valEvalu: '303000원',
+    //     earningRate: '21.20%',
+    //     profit: '53,000원',
+    //     qty: 10,
+    //     valTrade: '25,000원',
+    //     valstock: '30,300원',
+    //   },
+    //   {
+    //     type: '국내주식',
+    //     stockNm: '기아차',
+    //     valEvalu: '892,000원',
+    //     earningRate: '4.94%',
+    //     profit: '42,000원',
+    //     qty: 10,
+    //     valTrade: '85,000원',
+    //     valstock: '89,200원',
+    //   },
+    //   {
+    //     type: '국내주식',
+    //     stockNm: 'LG전자',
+    //     valEvalu: '511,500원',
+    //     earningRate: '3.33%',
+    //     profit: '16,500원',
+    //     qty: 3,
+    //     valTrade: '170,500원',
+    //     valstock: '495,000원',
+    //   },
+    //   {
+    //     type: '국내주식',
+    //     stockNm: '현대차',
+    //     valEvalu: '1,272,500원',
+    //     earningRate: '10.65%',
+    //     profit: '122,500원',
+    //     qty: 5,
+    //     valTrade: '230,000원',
+    //     valstock: '254,500원',
+    //   },
       
-    ],
+    // ],
     name: '',
     username: '',
     password: '',
@@ -554,8 +555,8 @@ export default {
 
   }),
   created(){
-    console.log("hi");
-    axios.get('/api/member/search/7')
+    console.log("neighbor id: "+ this.$route.params.id);
+    axios.get('/api/member/search/' + this.$route.params.id)
       .then(res => {
         console.log(res.data);
         this.name = res.data.name,
@@ -572,23 +573,32 @@ export default {
       .catch(err => {
         console.log('err', err);
       })
+
+    axios.get('/api/stock/search/' + this.$route.params.id)
+      .then(res => {
+        const msg = res.data;
+        this.Stock = msg;
+        console.log(+ this.$route.params.id + " : " + this.Stock);
+        for(var i=0; i<this.Stock.length; i++){
+          this.Stock[i].valTrade = priceComma(this.Stock[i].valTrade);
+          console.log(findStock('000020'));
+        }
+      })
+      .catch(err => {
+        console.log('err', err);
+      })
+
+      console.log("2 : " + this.Stock);
   },
-  
+  methods: {
+    priceComma,
+    findStock,
+  },
+  components: {
+    PieChart
+  }
 }
 </script>
-
-<script> 
-export default { 
-    data(){ 
-        return { neighborId: 'no name' 
-        } 
-    }, 
-    mounted(){ 
-        this.neighborId = this.$route.params.neighborId 
-        } 
-    } 
-</script>
-
 
 
 

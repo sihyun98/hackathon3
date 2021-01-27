@@ -59,9 +59,9 @@
                 <v-list two-line="" subheader="">
                   <v-list-item>
                     <!-- 레벨에 따라서 이미지 변경 필요 : if문 -->
-                    <v-list-item-avatar size="50">
+                    <v-list-item-avatar size="80">
                       <div v-if="grade === 'LV.1 파개미' ">
-                        <img src="../assets/imglv1.png" width="30">
+                        <img src="../assets/imglv1.png" >
                       </div>
                       <div v-else-if="grade === 'LV.2 초개미' ">
                         <img src="../assets/imglv2.png">
@@ -358,12 +358,6 @@
           <v-flex class="ml-10">
             <v-row>
               <!-- 테이블 -->
-              <!-- <v-data-table
-                :headers="headers"
-                :items="desserts"
-                :items-per-page="5"
-                class="elevation-1"
-              ></v-data-table> -->
               <v-card>
                 <v-card-title>
                   <v-text-field
@@ -465,21 +459,6 @@ export default {
 }
 </script>
 
-<script>
-export default {
-  name = 'app',
-  data() {
-    return {
-      chartData: {
-        '2017-05-13' : 2,
-        '2017-05-14' : 3,
-        '2017-05-15' : 4 
-      }
-    }
-  }
-  
-}
-</script>
 
 <script>
 import axios from 'axios'
