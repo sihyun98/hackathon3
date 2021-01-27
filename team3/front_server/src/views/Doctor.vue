@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import axios from "axios"
+// import axios from "axios"
 
 export default {
   name: "HelloWorld",
@@ -27,18 +27,21 @@ export default {
       view: false,
       name: '',
       name2: '',
-      doctor: []
+      doctor: [],
+      currentVal: [],
     }
   },
   created() {
-    axios.get('http://127.0.0.1:5000/api/test')
-      .then(res => {
-        this.name = res.data.message;
-        // this.view = true;
-      })
-      .catch(err => {
-        console.log('err', err);
-      })
+    // axios.get('https://sandbox-apigw.koscom.co.kr/v2/market/multiquote/stocks'
+    // + '/kospi/price?isuCd=' + '005930,000660'
+    // + '?apikey=l7xxc460c2c4fca442ebaef0e2d8977dc043')
+    //   .then(res => {
+    //     this.doctor = res.data;
+    //     // this.view = true;
+    //   })
+    //   .catch(err => {
+    //     console.log('err', err);
+    //   })
   },
 
   methods: {

@@ -14,9 +14,9 @@
                 </v-avatar>
 
                 <!-- 이름: 회원DB NAME -->            
-                <v-card-title class="layout justify-center">{{ name }}</v-card-title>
+                <v-card-title class="layout justify-center">{{ loginId }} 차예린</v-card-title>
                 <!-- 나이, 직업: 회원DB -->
-                <v-card-subtitle class="layout justify-center">{{age}}세, {{job}}</v-card-subtitle>
+                <v-card-subtitle class="layout justify-center">28세, 사무직</v-card-subtitle>
                 <v-list class="mt-n5">
                   <v-list-item>
                     <!-- 순위, 구독자, 수익률: TEXT  -->
@@ -60,26 +60,12 @@
                   <v-list-item>
                     <!-- 레벨에 따라서 이미지 변경 필요 : if문 -->
                     <v-list-item-avatar size="50">
-                      <div v-if="grade === 'LV.1 파개미' ">
-                        <img src="../assets/imglv1.png" width="30">
-                      </div>
-                      <div v-else-if="grade === 'LV.2 초개미' ">
-                        <img src="../assets/imglv2.png">
-                      </div>
-                      <div v-else-if="grade === 'LV.3 노개미' ">
-                        <img src="../assets/imglv3.png">
-                      </div>
-                      <div v-else-if="grade === 'LV.4 빨개미' ">
-                        <img src="../assets/imglv4.png">
-                      </div>
-                      <div v-else>
-                        <img src="../assets/imglv1.png">
-                      </div>
+                      <img src="../assets/imglv1.png">
                     </v-list-item-avatar>
                     <v-list-item-content class="ml-n2">
 
                       <!--레벨: 회원 DB -->
-                      <v-list-item-title>{{grade}}</v-list-item-title>
+                      <v-list-item-title>LV1. 파개미</v-list-item-title>
                       <!-- <v-list-item-subtitle>California Hospital Medical</v-list-item-subtitle> -->
                     </v-list-item-content>
                   </v-list-item>
@@ -99,19 +85,19 @@
                   <v-list-item>
                       <v-list-item-avatar size="10" color="orange darken-3"></v-list-item-avatar>
                       <v-list-item-title class="ml-n2">투자성향</v-list-item-title>
-                      <v-list-item-subtitle>{{investOpt}}</v-list-item-subtitle>
+                      <v-list-item-subtitle>단타위주</v-list-item-subtitle>
                   </v-list-item>
 
                   <v-list-item>
                       <v-list-item-avatar size="10" color="orange darken-3"></v-list-item-avatar>
                       <v-list-item-title class="ml-n2">연봉</v-list-item-title>
-                      <v-list-item-subtitle>{{salary}}만원</v-list-item-subtitle>
+                      <v-list-item-subtitle>5,000만원</v-list-item-subtitle>
                   </v-list-item>
 
                   <v-list-item>
                       <v-list-item-avatar size="10" color="orange darken-3"></v-list-item-avatar>
                       <v-list-item-title class="ml-n2">재산</v-list-item-title>
-                      <v-list-item-subtitle>{{property}}만원</v-list-item-subtitle>
+                      <v-list-item-subtitle>3,000만원</v-list-item-subtitle>
                   </v-list-item>
                 
                 <!-- <v-list two-line="" subheader="" class="mt-n5">
@@ -138,7 +124,7 @@
                     <!-- <v-list-item-title class="orange--text text--darken-3">Time</v-list-item-title> -->
                   </v-list-item>
                   <v-list-item class="mt-n10" >
-                    <v-list-item-title >{{profile}}</v-list-item-title>
+                    <v-list-item-title >나는야 파개미</v-list-item-title>
                     <!-- <v-list-item-title >12:45</v-list-item-title> -->
                   </v-list-item>
                   <v-divider></v-divider>
@@ -148,17 +134,17 @@
             </v-flex>
 
             <!-- 왼쪽 프로필 Box3-------------------------------------------->
-            <v-flex> 
+            <v-flex>
               <v-card class="ma-5 text text-center mt-6" shaped elevation="10">
-                <v-list-item three-line router to="/SubscribeList">
+                <v-list-item three-line>
                   <v-list-item-content>
-                    <v-list-item-title class="headline mb-1"> 옆집 놀러가기
+                    <v-list-item-title class="headline mb-1"> 구독하기
                       <!-- <v-icon>구독하기</v-icon>                         -->
                      </v-list-item-title>
                     <!-- <v-list-item-subtitle>2345 4546 7889 5432</v-list-item-subtitle>  -->
                   </v-list-item-content>
                   <v-list-item-avatar size="60" color="orange darken-3">
-                    <v-icon color="white">fas fa-suitcase-rolling</v-icon>
+                    <v-icon color="white">fas fa-plus</v-icon>
                   </v-list-item-avatar>
                 </v-list-item>
               </v-card>
@@ -197,14 +183,14 @@
           <v-col cols="12" md="10">            
             <v-list two-line="" subheader="" class="ml-n8" >
               <v-list-item>
-                <v-list-item-avatar size="60" >
-                    <v-icon color="orange darken-3">fas fa-wallet</v-icon>  
-                </v-list-item-avatar>
-                <v-list-item-content>                    
-                    <v-list-item-subtitle>총 자산</v-list-item-subtitle>
-                    <v-list-item-title>2,000,000원</v-list-item-title>                    
+                <v-list-item-content>
+                  <v-list-item-subtitle>총 자산</v-list-item-subtitle>
+                    <v-list-item-title>2,000,000원</v-list-item-title>
+                    
                 </v-list-item-content>
-                
+                <v-list-item-avatar size="60" color="orange darken-3">
+                    <v-icon color="red">arrow-bottom-bold</v-icon>
+                  </v-list-item-avatar>
               </v-list-item>
             </v-list>
           </v-col>
@@ -220,11 +206,6 @@
           <v-col cols="12" md="10">
             <v-list two-line subheader class="ml-n8">
               <v-list-item>
-                <!-- 데이터에 따라 up down if문 작성 -->
-                <v-list-item-avatar size="60" >
-                    <v-icon color="red accent-4" size="30">fas fa-sort-up</v-icon>  
-                    <!-- <v-icon color="blue darken-4" size="30">fas fa-sort-down</v-icon>   -->
-                </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-subtitle>손익</v-list-item-subtitle>
                   <v-list-item-title>1,000,000원</v-list-item-title>
@@ -245,11 +226,6 @@
           <v-col cols="12" md="10">
             <v-list two-line subheader class="ml-n8">
               <v-list-item>
-                <!-- 데이터에 따라 up down if문 작성 -->
-                <v-list-item-avatar size="60" >
-                    <v-icon color="red accent-4" size="30">fas fa-sort-up</v-icon>  
-                    <!-- <v-icon color="blue darken-4" size="30">fas fa-sort-down</v-icon>   -->
-                </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-subtitle>수익률</v-list-item-subtitle>
                   <v-list-item-title>50%</v-list-item-title>
@@ -376,7 +352,7 @@
                 </v-card-title>
                 <v-data-table
                   :headers="headers"
-                  :items="Stock"
+                  :items="desserts"
                   :search="search"
                 ></v-data-table>
               </v-card>
@@ -386,6 +362,7 @@
               :events="functionEvents"
               color="orange darken-3"
               >
+
               </v-date-picker> -->
             </v-row>
           </v-flex>
@@ -407,7 +384,6 @@
     </v-layout>
   </v-app>
 </template>
-
 
 <script>
 // import store from "../store/index"
@@ -437,13 +413,14 @@ export default {
     autoLineWidth: false,
     arrayEvents: null,
     date2: new Date().toISOString().substr(0,10),   
+      
   }),
   
   
   computed: {
     theme(){
       return this.$vuetify.theme.dark ? "dark" :"light";
-    },
+    }
   },
   mounted (){
     this.arrayEvents = [...Array(6)].map(() => {
@@ -453,7 +430,6 @@ export default {
       return d.toISOString().substr(0,10)
     })
   },
-
   methods: {
     functionEvents (date) {
       const [,, day] = date.split('-')
@@ -482,9 +458,6 @@ export default {
 </script>
 
 <script>
-import axios from 'axios'
-import priceComma from '../priceComma'
-
 export default {
   data: () => ({
 //테이블
@@ -494,7 +467,7 @@ export default {
         text: '타입',
         align: 'start',
         sortable: false,
-        value: 'assertType',
+        value: 'type',
       },
       { text: '종목', value: 'stockNm' },
       { text: '평가금액', value: 'valEvalu' },
@@ -504,108 +477,60 @@ export default {
       { text: '매입가', value: 'valTrade' },    
       { text: '현재가', value: 'valstock' },
     ],
-    Stock: [],
-    // desserts: [
-    //   {
-    //     type: '국내주식',
-    //     stockNm: '삼성전자',
-    //     valEvalu: '880,000원',
-    //     earningRate: '25.71%',
-    //     profit: '180,000원',
-    //     qty: 10,
-    //     valTrade: '70,000원',
-    //     valstock: '88,000원',
-    //   },
-    //   {
-    //     type: '국내주식',
-    //     stockNm: '대한항공',
-    //     valEvalu: '303000원',
-    //     earningRate: '21.20%',
-    //     profit: '53,000원',
-    //     qty: 10,
-    //     valTrade: '25,000원',
-    //     valstock: '30,300원',
-    //   },
-    //   {
-    //     type: '국내주식',
-    //     stockNm: '기아차',
-    //     valEvalu: '892,000원',
-    //     earningRate: '4.94%',
-    //     profit: '42,000원',
-    //     qty: 10,
-    //     valTrade: '85,000원',
-    //     valstock: '89,200원',
-    //   },
-    //   {
-    //     type: '국내주식',
-    //     stockNm: 'LG전자',
-    //     valEvalu: '511,500원',
-    //     earningRate: '3.33%',
-    //     profit: '16,500원',
-    //     qty: 3,
-    //     valTrade: '170,500원',
-    //     valstock: '495,000원',
-    //   },
-    //   {
-    //     type: '국내주식',
-    //     stockNm: '현대차',
-    //     valEvalu: '1,272,500원',
-    //     earningRate: '10.65%',
-    //     profit: '122,500원',
-    //     qty: 5,
-    //     valTrade: '230,000원',
-    //     valstock: '254,500원',
-    //   },
+    desserts: [
+      {
+        type: '국내주식',
+        stockNm: '삼성전자',
+        valEvalu: '880,000원',
+        earningRate: '25.71%',
+        profit: '180,000원',
+        qty: 10,
+        valTrade: '70,000원',
+        valstock: '88,000원',
+      },
+      {
+        type: '국내주식',
+        stockNm: '대한항공',
+        valEvalu: '303000원',
+        earningRate: '21.20%',
+        profit: '53,000원',
+        qty: 10,
+        valTrade: '25,000원',
+        valstock: '30,300원',
+      },
+      {
+        type: '국내주식',
+        stockNm: '기아차',
+        valEvalu: '892,000원',
+        earningRate: '4.94%',
+        profit: '42,000원',
+        qty: 10,
+        valTrade: '85,000원',
+        valstock: '89,200원',
+      },
+      {
+        type: '국내주식',
+        stockNm: 'LG전자',
+        valEvalu: '511,500원',
+        earningRate: '3.33%',
+        profit: '16,500원',
+        qty: 3,
+        valTrade: '170,500원',
+        valstock: '495,000원',
+      },
+      {
+        type: '국내주식',
+        stockNm: '현대차',
+        valEvalu: '1,272,500원',
+        earningRate: '10.65%',
+        profit: '122,500원',
+        qty: 5,
+        valTrade: '230,000원',
+        valstock: '254,500원',
+      },
       
-    // ],
-    name: '',
-    username: '',
-    password: '',
-    grade: '',
-    age: '',
-    job: '',
-    investOpt: '',
-    salary: '',
-    property: '',
-    profile: '',
+    ],
   }),
-  created(){
-    // console.log("hi");
-    axios.get('/api/member/search/1')
-      .then(res => {
-        // console.log(res.data);
-        this.name = res.data.name,
-        this.username = res.data.username,
-        this.grade = res.data.grade,
-        this.age = res.data.age,
-        this.job = res.data.job,
-        this.investOpt = res.data.investOpt,
-        this.salary = priceComma(res.data.salary),
-        this.property = priceComma(res.data.property),
-        this.profile = res.data.profile
-      })
-      .catch(err => {
-        console.log('err', err);
-      })
-    
-    axios.get('/api/stock/search/1')
-      .then(res => {
-        const msg = res.data;
-        this.Stock = msg;
-        console.log("1 : " + this.Stock);
-        for(var i=0; i<this.Stock.length; i++){
-          this.Stock[i].valTrade = priceComma(this.Stock[i].valTrade);
-        }
-      })
-      .catch(err => {
-        console.log('err', err);
-      })
-
-      console.log("2 : " + this.Stock);
-  },
-  methods: {
-    priceComma,
-  }
 }
 </script>
 
