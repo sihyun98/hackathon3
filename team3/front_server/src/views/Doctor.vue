@@ -1,15 +1,8 @@
+<!-- API 테스트 하기 위한 임시 페이지 입니다 -->
+
 <template>
   <div class="hello">
-
-    <!-- <button type="button">보기</button> -->
-    <!-- {{ name }} <br> -->
-    <!-- <button type="button" @click="search">보기</button> -->
-    <!-- <div v-if='view === true'> -->
-      <!-- -------------------<br> -->
       {{ doctor }}
-    <!-- </div> -->
-
-
   </div>
     
 </template>
@@ -45,17 +38,7 @@ export default {
   },
 
   methods: {
-    // search() {
-    //   axios.get('/api/member/search')
-    //   .then(res => {
-    //     this.doctor = res.data;
-    //     console.log(this.doctor);
-    //     this.view = true;
-    //   })
-    //   .catch(err => {
-    //     console.log('err', err);
-    //   })
-    // }
+
   }
 };
 </script>
