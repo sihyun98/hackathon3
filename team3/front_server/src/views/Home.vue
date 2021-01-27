@@ -353,7 +353,9 @@
             <v-list>
               <v-list-item>
                 <v-list-item-title class="orange--text text--darken-3">투자 종목 리스트</v-list-item-title>
+                <v-btn color="primary" class="mr-3" @click="excelDownFunc()"> 내려받기 </v-btn>
               </v-list-item>
+              <!-- <v-btn color="primary" class="mr-3" @click="excelDownFunc()"> 내려받기 </v-btn> -->
             </v-list>
           </v-flex>
           <v-flex class="ml-10">
@@ -466,10 +468,12 @@ import axios from 'axios'
 import priceComma from '../priceComma'
 // import findStock from '../findStock';
 // import findStock from '../findStock'
+import XLSX from 'xlsx'
 
 export default {
   data: () => ({
 //테이블
+    userId: 1,
     search: '',
     headers: [
       {
@@ -555,9 +559,15 @@ export default {
   }),
   async created(){
     // console.log("hi");
-    console.log("userid : " + this.$route.params.id);
+    if(this.$route.params.id == null){
+      this.userId = 1;
+    }
+    else{
+      this.userId = this.$route.params.id;
+    }
+    console.log("userid : " + this.userId);
 
-    axios.get('/api/member/search/' + this.$route.params.id)
+    axios.get('/api/member/search/' + this.userId)
       .then(res => {
         // console.log(res.data);
         this.name = res.data.name,
@@ -574,7 +584,7 @@ export default {
         console.log('err', err);
       })
     
-    await axios.get('/api/stock/search/' + this.$route.params.id)
+    await axios.get('/api/stock/search/' + this.userId)
       .then(res => {
         const msg = res.data;
         this.Stock = msg;
@@ -621,7 +631,13 @@ export default {
         name: 'SubscribeList',
         params: {"id" : this.$route.params.id}
         });
-      }
+      },
+    excelDownFunc(){
+      var dataWS = XLSX.utils.json_to_sheet(this.Stock);
+      var wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, dataWS, 'nameData');
+      XLSX.writeFile(wb, '내 보유 주식.xlsx');
+    },
   }
 }
 </script>

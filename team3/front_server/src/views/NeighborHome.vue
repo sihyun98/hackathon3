@@ -361,6 +361,7 @@
           <v-list class="mt-5">
             <v-list-item>
               <v-list-item-title class="orange--text text--darken-3">투자 종목 리스트</v-list-item-title>
+              <v-btn color="primary" class="mr-3" @click="excelDownFunc()"> 내려받기 </v-btn>
             </v-list-item>
           </v-list>
         </v-flex>
@@ -467,6 +468,7 @@ import axios from 'axios'
 import priceComma from '../priceComma'
 import findStock from '../findStock'
 import PieChart from '../components/PieChart'
+import XLSX from 'xlsx'
 
 export default {
   data: () => ({
@@ -593,6 +595,12 @@ export default {
   methods: {
     priceComma,
     findStock,
+    excelDownFunc(){
+      var dataWS = XLSX.utils.json_to_sheet(this.Stock);
+      var wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, dataWS, 'nameData');
+      XLSX.writeFile(wb, '옆집개미 투자 종목 리스트.xlsx');
+    },
   },
   components: {
     PieChart
