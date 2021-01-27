@@ -484,7 +484,8 @@ export default {
 <script>
 import axios from 'axios'
 import priceComma from '../priceComma'
-import findStock from '../findStock'
+// import findStock from '../findStock';
+// import findStock from '../findStock'
 
 export default {
   data: () => ({
@@ -497,13 +498,15 @@ export default {
         sortable: false,
         value: 'assertType',
       },
-      { text: '종목', value: 'stockNm' },
+      { text: '종목', value: 'isuKorNm' },
+      // { text: '종목', value: 'stockNm' },
       { text: '평가금액', value: 'valEvalu' },
       { text: '수익률', value: 'earningRate' },
       { text: '손익', value: 'profit' },
       { text: '잔고', value: 'qty' },      
       { text: '매입가', value: 'valTrade' },    
       { text: '현재가', value: 'valstock' },
+      // { text: '종목코드', value: 'isuSrtCd' },
     ],
     Stock: [],
     // desserts: [
@@ -570,7 +573,7 @@ export default {
     property: '',
     profile: '',
   }),
-  created(){
+  async created(){
     // console.log("hi");
     axios.get('/api/member/search/1')
       .then(res => {
@@ -589,25 +592,27 @@ export default {
         console.log('err', err);
       })
     
-    axios.get('/api/stock/search/1')
+    await axios.get('/api/stock/search/1')
       .then(res => {
         const msg = res.data;
         this.Stock = msg;
-        console.log("1 : " + this.Stock);
         for(var i=0; i<this.Stock.length; i++){
           this.Stock[i].valTrade = priceComma(this.Stock[i].valTrade);
-          console.log(findStock('000020'));
         }
       })
       .catch(err => {
         console.log('err', err);
       })
 
-      console.log("2 : " + this.Stock);
+    await axios.get('/api/stock/code/search/' + this.Stock[0].isuSrtCd)
+    .then(res => {
+      this.Stock[0].isuKorNm = res.data.isuKorNm;
+    })
+        
+
   },
   methods: {
     priceComma,
-    findStock,
   }
 }
 </script>
