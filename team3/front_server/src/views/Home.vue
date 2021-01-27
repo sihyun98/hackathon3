@@ -150,7 +150,8 @@
             <!-- 왼쪽 프로필 Box3-------------------------------------------->
             <v-flex> 
               <v-card class="ma-5 text text-center mt-6" shaped elevation="10">
-                <v-list-item three-line router to="/SubscribeList">
+                <!-- <v-list-item three-line @click="moveParams" router to="/SubscribeList"> -->
+                <v-list-item three-line @click="moveParams">
                   <v-list-item-content>
                     <v-list-item-title class="headline mb-1"> 옆집 놀러가기
                       <!-- <v-icon>구독하기</v-icon>                         -->
@@ -554,7 +555,9 @@ export default {
   }),
   async created(){
     // console.log("hi");
-    axios.get('/api/member/search/1')
+    console.log("userid : " + this.$route.params.id);
+
+    axios.get('/api/member/search/' + this.$route.params.id)
       .then(res => {
         // console.log(res.data);
         this.name = res.data.name,
@@ -571,7 +574,7 @@ export default {
         console.log('err', err);
       })
     
-    await axios.get('/api/stock/search/1')
+    await axios.get('/api/stock/search/' + this.$route.params.id)
       .then(res => {
         const msg = res.data;
         this.Stock = msg;
@@ -612,6 +615,13 @@ export default {
   },
   methods: {
     priceComma,
+    moveParams(){
+        console.log("index : " + this.$route.params.id);
+        this.$router.push({
+        name: 'SubscribeList',
+        params: {"id" : this.$route.params.id}
+        });
+      }
   }
 }
 </script>

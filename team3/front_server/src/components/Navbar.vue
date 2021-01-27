@@ -17,7 +17,7 @@
                 </v-list-item>
             </v-list>
             <v-list flat>
-                <v-list-item router to="/home">
+                <v-list-item @click='moveHome'>
                     <v-list-item-content>
                         <v-icon class="mb-2">fas fa-house-user</v-icon>
                         <v-list-item-subtitle align="center">우리집</v-list-item-subtitle>
@@ -57,6 +57,15 @@
 export default {
     data: () => ({
         drawer: true
-    })
+    }),
+    methods: {
+        moveHome(){
+        // console.log("index : " + index);
+        this.$router.push({
+        name: 'Home',
+        params: {"id" : 1}
+        });
+    }
+    },
 }
 </script>

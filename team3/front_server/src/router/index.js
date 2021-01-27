@@ -20,6 +20,7 @@ const routes = [
   {
     path: "/home",
     name: "Home",
+    props: true,
     component: Home
   },
   {
@@ -45,6 +46,7 @@ const routes = [
   {
     path: "/SubscribeList",
     name: "SubscribeList",
+    props: true,
     component: SubscribeList
   },
   {

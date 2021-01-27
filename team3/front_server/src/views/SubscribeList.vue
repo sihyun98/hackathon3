@@ -390,7 +390,7 @@ export default {
   
   async created(){
     // console.log("hi");
-    axios.get('/api/member/search/1')
+    axios.get('/api/member/search/' + this.$route.params.id)
       .then(res => {
         // console.log(res.data);
         this.name = res.data.name,
@@ -409,7 +409,7 @@ export default {
 
 // subscribers list
 
-      await axios.get('/api/member/likes/1')
+      await axios.get('/api/member/likes/' + this.$route.params.id)
       .then(res => {
         const msg = res.data;
         this.subscribes = msg;

@@ -86,13 +86,21 @@ import axios from "axios"
               if(res.data.code == "OK"){
                 //   this.index = res.data.message;
                 //   console.log(this.index);
-                  location.href = "home";
+                this.moveParams(res.data.message);
+                  // location.href = "home";
               }
               else{
                   console.log("아이디 또는 비밀번호를 확인해주세요.");
               }
           })
       },
+      moveParams(index){
+        console.log("index : " + index);
+        this.$router.push({
+        name: 'Home',
+        params: {"id" : index}
+        });
+      }
     },
   }
 </script>
