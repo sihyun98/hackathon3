@@ -466,7 +466,7 @@ export default {
       // { text: '매입가', value: 'valTrade' },    
       // { text: '현재가', value: 'valCur' },
 
-      { text: '종목', align: 'center', value: 'isKorNm' },
+      { text: '종목', align: 'center', value: 'isuKorNm' },
       { text: '평가금액', align: 'right', value: 'valEvalu' },
       { text: '수익률 (%)', align: 'center', value: 'earningRate' },
       { text: '손익', align: 'right', value: 'profit' },
