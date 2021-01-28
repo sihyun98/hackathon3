@@ -485,7 +485,7 @@ export default {
     }
     console.log("userid : " + this.userId);
 
-    axios.get('/api/member/search/' + this.userId)
+    axios.get('/api/member/search/' +  this.$session.get('user_no'))
       .then(res => {
         // console.log(res.data);
         this.name = res.data.name,
@@ -502,7 +502,7 @@ export default {
         console.log('err', err);
       })
     
-    await axios.get('/api/stock/search/' + this.userId)
+    await axios.get('/api/stock/search/' +  this.$session.get('user_no'))
       .then(res => {
         const msg = res.data;
         this.Stock = msg;
