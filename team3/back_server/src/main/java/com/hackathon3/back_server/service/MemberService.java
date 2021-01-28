@@ -20,6 +20,7 @@ import com.hackathon3.back_server.dto.member.MemberUpdateResponseDto;
 import com.hackathon3.back_server.exception.MemberNotFoundException;
 import com.hackathon3.back_server.repository.MemberRepository;
 import com.hackathon3.back_server.repository.MemberRepositorySupport;
+import com.hackathon3.back_server.repository.StockRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -29,6 +30,7 @@ public class MemberService {
 
 	private final MemberRepository repository;
 	private final MemberRepositorySupport memberRepositorySupport;
+	private final StockRepository stockRepository;
 	
 	// POST - 회원가입
 	@Transactional
@@ -101,7 +103,7 @@ public class MemberService {
 	public MemberSearchResponseDto searchMember(Long id) {
 		
 		Member member = repository.findById(id).get();
-
+		
 		MemberSearchResponseDto dto = new MemberSearchResponseDto();
 		dto.setId(member.getId());
 		dto.setName(member.getName());
@@ -114,6 +116,7 @@ public class MemberService {
 		dto.setSalary(member.getSalary());
 		dto.setProperty(member.getProperty());
 		dto.setProfile(member.getProfile());
+		dto.setTotalEarning(member.getTotalEarning());
 								
 		return dto;
 	}

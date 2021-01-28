@@ -28,7 +28,7 @@
                     <!-- 순위: 계산, 구독자: 구독 DB, 수익률: 계산 -->
                     <v-list-item-subtitle>1위</v-list-item-subtitle>
                     <v-list-item-subtitle>1.2만</v-list-item-subtitle>
-                    <v-list-item-subtitle>543%</v-list-item-subtitle>
+                    <v-list-item-subtitle>{{ totalEarning }}</v-list-item-subtitle>
                   </v-list-item>
                 </v-list>
               </v-card>
@@ -148,11 +148,26 @@
             </v-flex>
 
             <!-- 왼쪽 프로필 Box3-------------------------------------------->
-            <v-flex> 
+            <v-flex v-if="checkSubscribe === false"> 
               <v-card class="ma-5 text text-center mt-6" shaped elevation="10">
-                <v-list-item three-line router to="/SubscribeList">
+                <v-list-item three-line @click="goSubscribe">
                   <v-list-item-content>
-                    <v-list-item-title class="headline mb-1"> 옆집 놀러가기
+                    <v-list-item-title class="headline mb-1"> 구독하기
+                      <!-- <v-icon>구독하기</v-icon>                         -->
+                     </v-list-item-title>
+                    <!-- <v-list-item-subtitle>2345 4546 7889 5432</v-list-item-subtitle>  -->
+                  </v-list-item-content>
+                  <v-list-item-avatar size="60" color="orange darken-3">
+                    <v-icon color="white">fas fa-suitcase-rolling</v-icon>
+                  </v-list-item-avatar>
+                </v-list-item>
+              </v-card>
+            </v-flex>
+            <v-flex v-else> 
+              <v-card class="ma-5 text text-center mt-6" shaped elevation="10">
+                <v-list-item three-line>
+                  <v-list-item-content>
+                    <v-list-item-title class="headline mb-1"> 구독중
                       <!-- <v-icon>구독하기</v-icon>                         -->
                      </v-list-item-title>
                     <!-- <v-list-item-subtitle>2345 4546 7889 5432</v-list-item-subtitle>  -->
@@ -450,7 +465,7 @@ export default {
       { text: '손익', value: 'profit' },
       { text: '잔고', value: 'qty' },      
       { text: '매입가', value: 'valTrade' },    
-      { text: '현재가', value: 'valstock' },
+      { text: '현재가', value: 'valCur' },
     ],
     Stock: [],
     name: '',
@@ -467,10 +482,24 @@ export default {
     totalProfit: 0,
     totalEarningRate: 0,
     total: 0,
+    checkSubscribe: false,
+    my_id: 0,
+    subscriber_id: 0,
 
   }),
+  computed: {
+    form(){
+      return{
+        my_id: this.my_id,
+        subscriber_id: this.subscriber_id,
+      }
+    }
+  },
   async created(){
-    console.log("neighbor id: "+ this.$route.params.id);
+    // console.log("neighbor id: "+ this.$route.params.id);
+    this.form.my_id = this.$session.get('user_no');
+    this.form.subscriber_id = this.$route.params.id;
+
     axios.get('/api/member/search/' + this.$route.params.id)
       .then(res => {
         console.log(res.data);
@@ -482,12 +511,20 @@ export default {
         this.investOpt = res.data.investOpt,
         this.salary = priceComma(res.data.salary),
         this.property = priceComma(res.data.property),
-        this.profile = res.data.profile
+        this.profile = res.data.profile,
+        this.totalEarning = res.data.totalEarning
         console.log(this.name);
       })
       .catch(err => {
         console.log('err', err);
       })
+
+    await axios.post('/api/subscribe/check', this.form)
+    .then(res => {
+      if(res.data.code == "OK"){
+        this.checkSubscribe = true;
+      }
+    })
 
     await axios.get('/api/stock/search/' + this.$route.params.id)
       .then(res => {
@@ -524,6 +561,15 @@ export default {
       XLSX.utils.book_append_sheet(wb, dataWS, 'nameData');
       XLSX.writeFile(wb, '옆집개미 투자 종목 리스트.xlsx');
     },
+    async goSubscribe() {
+      await axios.post('/api/subscribe', this.form)
+        .then(res => {
+          if(res.data.code == "OK"){
+            this.checkSubscribe = true;
+          }
+        })
+      // this.checkSubscribe = true;
+    }
   },
   components: {
     PieChart

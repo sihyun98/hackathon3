@@ -25,6 +25,8 @@ public class MemberSearchResponseDto {
 	private int property;
 	private String profile;
 	
+	private double totalEarning;
+	
 //	private List<Stock> stocks = new ArrayList<>();
 
 }
