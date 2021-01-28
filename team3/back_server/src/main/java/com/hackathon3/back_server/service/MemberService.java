@@ -88,7 +88,7 @@ public class MemberService {
 			dto.setSalary(member.getSalary());
 			dto.setProperty(member.getProperty());
 			dto.setProfile(member.getProfile());
-			
+					
 			memberSearchResponseDto.add(dto);
 			
 		}
@@ -189,5 +189,38 @@ public class MemberService {
 		}
 		
 		return dto;
+	}
+	
+	// GET - 이웃 불러오기
+	@Transactional(readOnly = true)
+	public List<MemberSearchResponseDto> neighbors(Long id) {
+		
+		// 회원 정보를 저장할 배열
+		List<MemberSearchResponseDto> memberSearchResponseDto = new ArrayList<MemberSearchResponseDto>();
+		List<Member> members = repository.findAll();
+		
+		for(Member member : members) {
+			
+			if(member.getId() != id) {
+			
+				MemberSearchResponseDto dto = new MemberSearchResponseDto();
+				dto.setId(member.getId());
+				dto.setName(member.getName());
+				dto.setUsername(member.getUsername());
+				dto.setPassword(member.getPassword());
+				dto.setGrade(member.getGrade());
+				dto.setAge(member.getAge());
+				dto.setJob(member.getJob());
+				dto.setInvestOpt(member.getInvestOpt());
+				dto.setSalary(member.getSalary());
+				dto.setProperty(member.getProperty());
+				dto.setProfile(member.getProfile());
+						
+				memberSearchResponseDto.add(dto);
+			}
+			
+		}
+		
+		return memberSearchResponseDto;
 	}
 }

@@ -81,4 +81,10 @@ public class MemberController {
 	public List<MemberSearchResponseDto> search(@PathVariable Long id){
 		return subscribeService.likes(id);
 	}
+	
+	// SEARCH - neighbor list
+	@GetMapping("/api/member/neighbors/{id}")
+	public List<MemberSearchResponseDto> neighbors(@PathVariable Long id){
+		return memberService.neighbors(id);
+	}
 }

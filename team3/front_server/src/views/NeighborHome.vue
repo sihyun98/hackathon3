@@ -361,13 +361,16 @@
           <v-list class="mt-5">
             <v-list-item>
               <v-list-item-title class="orange--text text--darken-3">투자 종목 리스트</v-list-item-title>
-              <v-btn color="primary" class="mr-3" @click="excelDownFunc()"> 내려받기 </v-btn>
+              <!-- <v-btn color="orange darken-3" class="mr-3" @click="excelDownFunc()"> 내려받기 </v-btn> -->
+              <v-btn class="ma-2" tile outlined="" color="orange darken-3" @click="excelDownFunc()"> 
+                <v-icon left>far fa-file-excel</v-icon> Download
+              </v-btn>
             </v-list-item>
           </v-list>
         </v-flex>
 
         <v-flex class="ml-10"> 
-          <v-row>
+          <!-- <v-row> -->
             <v-card>
               <v-card-title>
                 <v-text-field
@@ -384,7 +387,7 @@
                 :search="search"
               ></v-data-table>
             </v-card>
-          </v-row>
+          <!-- </v-row> -->
         </v-flex>     
         
       </v-col>
@@ -556,9 +559,9 @@ export default {
     
 
   }),
-  created(){
+  async created(){
     console.log("neighbor id: "+ this.$route.params.id);
-    axios.get('/api/member/search/' + this.$route.params.id)
+    await axios.get('/api/member/search/' + this.$route.params.id)
       .then(res => {
         console.log(res.data);
         this.name = res.data.name,
@@ -576,14 +579,14 @@ export default {
         console.log('err', err);
       })
 
-    axios.get('/api/stock/search/' + this.$route.params.id)
+    await axios.get('/api/stock/search/' + this.$route.params.id)
       .then(res => {
         const msg = res.data;
         this.Stock = msg;
         console.log(+ this.$route.params.id + " : " + this.Stock);
         for(var i=0; i<this.Stock.length; i++){
           this.Stock[i].valTrade = priceComma(this.Stock[i].valTrade);
-          console.log(findStock('000020'));
+          // console.log(findStock('000020'));
         }
       })
       .catch(err => {

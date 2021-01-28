@@ -1,6 +1,61 @@
 <template>
+  <v-container fluid fill-height>
+    <v-layout align-center justify-center>
+      <v-flex xs12 sm8 md4>
+        <v-card class="elevation-12">
+          <v-toolbar dark color="orange darken-3">
+            <v-toolbar-title>Login</v-toolbar-title>         
+            <v-spacer></v-spacer>
+          </v-toolbar>
+          <v-card-text>
+            <v-form>
+              <!-- <v-text-field prepend-icon="person" v-model="form.id" label="아이디" type="text"></v-text-field>
+              <v-text-field prepend-icon="lock" v-model="form.pwd" label="비밀번호" type="password"></v-text-field> -->
+              <v-text-field
+                prepend-icon="person"
+                ref="username"
+                v-model="username"
+                :rules="[() => !!username || '필수 입력 항목입니다.']"
+                label="아이디"
+                placeholder=""
+                required
+              ></v-text-field>
+              <v-text-field
+                prepend-icon="lock"
+                ref="password"
+                v-model="password"
+                :rules="[() => !!password || '필수 입력 항목입니다.']"
+                label="비밀번호"
+                placeholder=""
+                required
+              ></v-text-field>
+            </v-form>
+          </v-card-text>
+          <v-card-actions>
+            <v-btn 
+              color="orange darken-3"
+              text
+              @click="join"
+              >
+                회원가입
+            </v-btn>
+            <v-spacer></v-spacer>
+            <!-- <v-btn color="primary" @click="signIn">로그인</v-btn> -->
+            <v-btn
+              color="orange darken-3"
+              text
+              @click="submit"
+            >
+              로그인
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
 
-  <v-row justify="center">
+
+  <!-- <v-row justify="center">
     <v-col
       cols="12"
       sm="10"
@@ -40,11 +95,12 @@
           >
             로그인
           </v-btn>
-          <!-- <childhome v-bind:num="index"></childhome> -->
+          <childhome v-bind:num="index"></childhome>
         </v-card-actions>
       </v-card>
     </v-col>
-  </v-row>
+  </v-row> -->
+
 </template>
 
 <script>
@@ -99,6 +155,11 @@ import axios from "axios"
         this.$router.push({
         name: 'Home',
         params: {"id" : index}
+        });
+      },
+      join () {
+        this.$router.push({
+        name: 'SignUp' 
         });
       }
     },

@@ -485,11 +485,11 @@ export default {
       { text: '종목', value: 'isuKorNm' },
       // { text: '종목', value: 'stockNm' },
       { text: '평가금액', value: 'valEvalu' },
-      { text: '수익률', value: 'earningRate' },
+      { text: '수익률 (%)', value: 'earningRate' },
       { text: '손익', value: 'profit' },
       { text: '잔고', value: 'qty' },      
       { text: '매입가', value: 'valTrade' },    
-      { text: '현재가', value: 'valstock' },
+      { text: '현재가', value: 'valCur' },
       // { text: '종목코드', value: 'isuSrtCd' },
     ],
     Stock: [],
@@ -590,6 +590,9 @@ export default {
         this.Stock = msg;
         for(var i=0; i<this.Stock.length; i++){
           this.Stock[i].valTrade = priceComma(this.Stock[i].valTrade);
+          this.Stock[i].valCur = priceComma(this.Stock[i].valCur);
+          this.Stock[i].valEvalu = priceComma(this.Stock[i].valEvalu);
+          this.Stock[i].profit = priceComma(this.Stock[i].profit);
         }
       })
       .catch(err => {
