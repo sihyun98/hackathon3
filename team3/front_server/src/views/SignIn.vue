@@ -53,54 +53,6 @@
       </v-flex>
     </v-layout>
   </v-container>
-
-
-  <!-- <v-row justify="center">
-    <v-col
-      cols="12"
-      sm="10"
-      md="8"
-      lg="6"
-    >
-      <v-card ref="form">
-        <v-card-text>
-          <v-text-field
-            ref="username"
-            v-model="username"
-            :rules="[() => !!username || '필수 입력 항목입니다.']"
-            label="사용자 아이디"
-            placeholder=""
-            required
-          ></v-text-field>
-          <v-text-field
-            ref="password"
-            v-model="password"
-            :rules="[() => !!password || '필수 입력 항목입니다.']"
-            label="비밀번호"
-            placeholder=""
-            required
-          ></v-text-field>
-          
-        </v-card-text>
-        <v-divider class="mt-12"></v-divider>
-        <v-card-actions>
-          <v-btn text>
-            취소
-          </v-btn>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            text
-            @click="submit"
-          >
-            로그인
-          </v-btn>
-          <childhome v-bind:num="index"></childhome>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row> -->
-
 </template>
 
 <script>
@@ -151,11 +103,14 @@ import axios from "axios"
           })
       },
       moveParams(index){
-        console.log("index : " + index);
-        this.$router.push({
-        name: 'Home',
-        params: {"id" : index}
-        });
+        // console.log("index : " + index);
+        // this.$router.push({
+        // name: 'Home',
+        // params: {"id" : index}
+        // });
+        this.$session.set('user_no', index);
+        location.href = "home";
+
       },
       join () {
         this.$router.push({

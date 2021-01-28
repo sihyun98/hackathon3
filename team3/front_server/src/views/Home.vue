@@ -288,55 +288,24 @@
               </v-item-content> -->
             </v-list-item>
           </v-list>
-        </v-flex>
+        </v-flex>             
+
         
-        <!-- 중간 그래프(기본 양식) -------------------------->
-        <!-- <v-flex>
-          <v-sparkline
-          :value="value"
-          :gradient="gradient"
-          :smooth="radius || false"
-          :padding="padding"
-          :line-width="width"
-          :stroke-linCap="lineCap"
-          :gradient-direction="gradientDirection"
-          :fill="fill"
-          :type="type"
-          :auto-line-width="autoLineWidth"
-          auto-draw=""
-          >
-          </v-sparkline>
-        </v-flex> -->
 
-        <!-- 중간 그래프(원형 그래프 추가) -------------------------->
-        <v-flex>
-          <v-card>
-            <!-- <v-card-title primary-title>
-              <span class="grey--text">포트폴리오</span>
-            </v-card-title> -->
-          <v-card-text>
-            <v-progress-circular
-            :rotate="-90"
-            :size="300"
-            :width="30"
-            :value=90
-            color="orange darken-4"
-            >           
-            </v-progress-circular>
-          </v-card-text>
-        </v-card>
-
-          <!-- <v-progress-circular 
-          :value=50
-          color="pink lighton-2"
-          size="150"
-          width="15" > 50% </v-progress-circular>
-          <h1 class="headline pl-5">$11111</h1>
-          <h6 class="grey--text pl-5">with 25 days</h6> -->
+        <!-- 중간 그래프(파이그래프) -------------------------->
+        <v-flex class="ml-5">
+          <!-- <v-row> -->
+            <v-card>
+              <v-card-text>
+                <pie-chart></pie-chart>
+                </v-card-text>
+            </v-card>
+          <!-- </v-row> -->
         </v-flex>
+
 
         <!-- 아래 항목명 -------------------------->
-        <v-flex class="mt-5">
+        <!-- <v-flex class="mt-5">
           <v-list class="ml-5">
             <v-list-item>
               <v-list-item-avatar color="orange darken-4" size="20px"></v-list-item-avatar>
@@ -345,21 +314,26 @@
               <v-list-item-title class="ml-5">채권</v-list-item-title>
             </v-list-item>
           </v-list>
-        </v-flex>
+        </v-flex> -->
+
         </v-col>
+
         <!-- 오른쪽 -------------------------->
         <v-col cols="12" md="8">
           <v-flex class="ml-10">
             <v-list>
               <v-list-item>
                 <v-list-item-title class="orange--text text--darken-3">투자 종목 리스트</v-list-item-title>
-                <v-btn color="primary" class="mr-3" @click="excelDownFunc()"> 내려받기 </v-btn>
+                <!-- <v-btn color="primary" class="mr-3" @click="excelDownFunc()"> 내려받기 </v-btn> -->
+                <v-btn class="ma-2" tile outlined="" color="orange darken-3" @click="excelDownFunc()"> 
+                <v-icon left>far fa-file-excel</v-icon> Download
+              </v-btn>
               </v-list-item>
               <!-- <v-btn color="primary" class="mr-3" @click="excelDownFunc()"> 내려받기 </v-btn> -->
             </v-list>
           </v-flex>
+
           <v-flex class="ml-10">
-            <v-row>
               <!-- 테이블 -->
               <v-card>
                 <v-card-title>
@@ -377,14 +351,6 @@
                   :search="search"
                 ></v-data-table>
               </v-card>
-              <!-- <v-date-picker
-              v-model="date2"
-              :event-color="date => date[9] % 2 ? 'red' : 'yellow'"
-              :events="functionEvents"
-              color="orange darken-3"
-              >
-              </v-date-picker> -->
-            </v-row>
           </v-flex>
         </v-col>
 
@@ -468,6 +434,7 @@ import axios from 'axios'
 import priceComma from '../priceComma'
 // import findStock from '../findStock';
 // import findStock from '../findStock'
+import PieChart from '../components/PieChart'
 import XLSX from 'xlsx'
 
 export default {
@@ -509,7 +476,7 @@ export default {
     total: 0,
   }),
   async created(){
-    // console.log("hi");
+    console.log("userid : " + this.$session.get('user_no'));
     if(this.$route.params.id == null){
       this.userId = 1;
     }
@@ -601,6 +568,9 @@ export default {
       XLSX.utils.book_append_sheet(wb, dataWS, 'nameData');
       XLSX.writeFile(wb, '내 보유 주식.xlsx');
     },
+  },
+  components: {
+    PieChart
   }
 }
 </script>
