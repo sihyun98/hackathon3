@@ -232,7 +232,7 @@
                 </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-subtitle>손익</v-list-item-subtitle>
-                  <v-list-item-title>{{ totalProfit }}원</v-list-item-title>
+                  <v-list-item-title>{{ stringProfit }}원</v-list-item-title>
                   <!-- <v-list-item-subtitle>Incurable</v-list-item-subtitle> -->
                 </v-list-item-content>
               </v-list-item>
@@ -458,15 +458,22 @@ export default {
         sortable: false,
         value: 'assertType',
       },
-      { text: '종목', value: 'isuKorNm' },
-      // { text: '종목', value: 'stockNm' },
-      { text: '평가금액', value: 'valEvalu' },
-      { text: '수익률 (%)', value: 'earningRate' },
-      { text: '손익', value: 'profit' },
-      { text: '잔고', value: 'qty' },      
-      { text: '매입가', value: 'valTrade' },    
-      { text: '현재가', value: 'valCur' },
-      // { text: '종목코드', value: 'isuSrtCd' },
+      // { text: '종목', value: 'isuKorNm' },
+      // { text: '평가금액', value: 'valEvalu' },
+      // { text: '수익률 (%)', value: 'earningRate' },
+      // { text: '손익', value: 'profit' },
+      // { text: '잔고', value: 'qty' },      
+      // { text: '매입가', value: 'valTrade' },    
+      // { text: '현재가', value: 'valCur' },
+
+      { text: '종목', align: 'center', value: 'isKorNm' },
+      { text: '평가금액', align: 'right', value: 'valEvalu' },
+      { text: '수익률 (%)', align: 'center', value: 'earningRate' },
+      { text: '손익', align: 'right', value: 'profit' },
+      { text: '잔고', align: 'center', value: 'qty' },      
+      { text: '매입가', align: 'right', value: 'valTrade' },    
+      { text: '현재가', align: 'right', value: 'valCur' },
+
     ],
     Stock: [],
     name: '',
@@ -484,6 +491,7 @@ export default {
     totalEarningRate: 0,
     total: 0,
     totalEarning: 0,
+    stringProfit: '',
   }),
   async created(){
     // this.renderChart(this.chartData, this.options)
@@ -533,9 +541,12 @@ export default {
         }
         this.totalEarningRate = (this.totalProfit / this.total) * 100;
         this.totalEarningRate = this.totalEarningRate.toFixed(2);
-        this.totalProperty = priceComma(this.totalProperty);
-        this.totalProfit = priceComma(this.totalProfit);
+        // this.totalProperty = priceComma(this.totalProperty);
+        // this.totalProfit = priceComma(this.totalProfit);
         // this.totalEarningRate = (this.totalProfit / this.total) * 100;
+        this.totalProfit = this.totalProfit;
+        this.totalProperty = priceComma(this.totalProperty);
+        this.stringProfit = priceComma(this.totalProfit);
       })
       .catch(err => {
         console.log('err', err);

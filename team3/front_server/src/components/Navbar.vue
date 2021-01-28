@@ -17,12 +17,24 @@
                 </v-list-item>
             </v-list>
             <v-list flat>
-                <v-list-item @click='moveHome'>
-                    <v-list-item-content>
-                        <v-icon class="mb-2">fas fa-house-user</v-icon>
-                        <v-list-item-subtitle align="center">우리집</v-list-item-subtitle>
-                    </v-list-item-content>
-                </v-list-item>
+                <div v-if="ifLoggedIn === true ">
+                <!-- <v-if this.$session.get('user_no') > 0 -->
+                    <v-list-item @click='moveHome'>
+                        <v-list-item-content>
+                            <v-icon class="mb-2">fas fa-house-user</v-icon>
+                            <v-list-item-subtitle align="center">우리집</v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+                </div>
+                <div v-else>
+                    <v-list-item>
+                        <v-list-item-content>
+                            <v-icon class="mb-2">fas fa-house-user</v-icon>
+                            <v-list-item-subtitle align="center">우리집</v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+                </div>
+
                 <v-list-item @click='moveRankingLsit'>
                     <v-list-item-content>
                         <v-icon class="mb-2">fas fa-search</v-icon> 
@@ -56,8 +68,15 @@
 <script>
 export default {
     data: () => ({
-        drawer: true
+        drawer: true,
+        ifLoggedIn: false,
     }),
+    created() {
+        console.log(this.ifLoggedIn);
+        if(this.$session.get('user_no') != 0){
+            this.ifLoggedIn = true;
+        }
+    },
     methods: {
         moveHome(){
         // console.log("index : " + index);

@@ -22,7 +22,7 @@
                     <!-- 순위, 구독자, 수익률: TEXT  -->
                     <v-list-item-title class="orange--text text--darken-3">순위</v-list-item-title>
                     <v-list-item-title class="orange--text text--darken-3">구독자</v-list-item-title>
-                    <v-list-item-title class="orange--text text--darken-3">수익률</v-list-item-title>
+                    <v-list-item-title class="orange--text text--darken-3">3개월 수익률</v-list-item-title>
                   </v-list-item>
                   <v-list-item class="mt-n5">
                     <!-- 순위: 계산, 구독자: 구독 DB, 수익률: 계산 -->
@@ -247,7 +247,7 @@
                 </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-subtitle>손익</v-list-item-subtitle>
-                  <v-list-item-title>{{ totalProfit }}원</v-list-item-title>
+                  <v-list-item-title>{{ stringProfit }}원</v-list-item-title>
                   <!-- <v-list-item-subtitle>Incurable</v-list-item-subtitle> -->
                 </v-list-item-content>
               </v-list-item>
@@ -465,15 +465,16 @@ export default {
         text: '타입',
         align: 'start',
         sortable: false,
+        align: 'center',
         value: 'assertType',
       },
-      { text: '종목', value: 'stockNm' },
-      { text: '평가금액', value: 'valEvalu' },
-      { text: '수익률', value: 'earningRate' },
-      { text: '손익', value: 'profit' },
-      { text: '잔고', value: 'qty' },      
-      { text: '매입가', value: 'valTrade' },    
-      { text: '현재가', value: 'valCur' },
+      { text: '종목', align: 'center', value: 'stockNm' },
+      { text: '평가금액', align: 'right', value: 'valEvalu' },
+      { text: '수익률 (%)', align: 'center', value: 'earningRate' },
+      { text: '손익', align: 'right', value: 'profit' },
+      { text: '잔고', align: 'center', value: 'qty' },      
+      { text: '매입가', align: 'right', value: 'valTrade' },    
+      { text: '현재가', align: 'right', value: 'valCur' },
     ],
     Stock: [],
     name: '',
@@ -493,6 +494,7 @@ export default {
     checkSubscribe: false,
     my_id: 0,
     subscriber_id: 0,
+    stringProfit: '',
 
   }),
   computed: {
@@ -504,13 +506,44 @@ export default {
     }
   },
   async created(){
+
+    axios.get('/api/stock/search/' + this.$route.params.id)
+      .then(res => {
+        const msg = res.data;
+        this.Stock = msg;
+        console.log(+ this.$route.params.id + " : " + this.Stock);
+        for(var i=0; i<this.Stock.length; i++){
+          this.totalProperty += this.Stock[i].valEvalu;
+          this.totalProfit += this.Stock[i].profit;
+          this.total += this.Stock[i].valTrade * this.Stock[i].qty;
+          this.Stock[i].valTrade = priceComma(this.Stock[i].valTrade);
+          this.Stock[i].valCur = priceComma(this.Stock[i].valCur);
+          this.Stock[i].valEvalu = priceComma(this.Stock[i].valEvalu);
+          this.Stock[i].profit = priceComma(this.Stock[i].profit);
+          // if(this.Stock[i].assertType != '주식'){
+          //   this.Stock[i].isuKorNm = this.Stock[i].stockNm;
+          // }
+          // console.log(findStock('000020'));
+        }
+        // this.totalProfit = priceComma(this.totalProfit);
+        this.totalEarningRate = (this.totalProfit / this.total) * 100;
+        this.totalEarningRate = this.totalEarningRate.toFixed(2);
+        this.totalProfit = this.totalProfit;
+        this.totalProperty = priceComma(this.totalProperty);
+        this.stringProfit = priceComma(this.totalProfit);
+      })
+      .catch(err => {
+        console.log('err', err);
+      })
+
+
     // this.$session.set('neighbor_id', this.$route.params.id)
     // console.log("neighbor id : " + this.$session.get(neighbor_id))
     // console.log("neighbor id: "+ this.$route.params.id);
     this.form.my_id = this.$session.get('user_no');
     this.form.subscriber_id = this.$route.params.id;
 
-    axios.get('/api/member/search/' + this.$route.params.id)
+    await axios.get('/api/member/search/' + this.$route.params.id)
       .then(res => {
         console.log(res.data);
         this.name = res.data.name,
@@ -529,38 +562,44 @@ export default {
         console.log('err', err);
       })
 
-    await axios.post('/api/subscribe/check', this.form)
-    .then(res => {
-      if(res.data.code == "OK"){
-        this.checkSubscribe = true;
-      }
-    })
+    // await axios.post('/api/subscribe/check', this.form)
+    // .then(res => {
+    //   if(res.data.code == "OK"){
+    //     this.checkSubscribe = true;
+    //   }
+    // })
 
-    await axios.get('/api/stock/search/' + this.$route.params.id)
-      .then(res => {
-        const msg = res.data;
-        this.Stock = msg;
-        console.log(+ this.$route.params.id + " : " + this.Stock);
-        for(var i=0; i<this.Stock.length; i++){
-          this.totalProperty += this.Stock[i].valEvalu;
-          this.totalProfit += this.Stock[i].profit;
-          this.total += this.Stock[i].valTrade * this.Stock[i].qty;
-          this.Stock[i].valTrade = priceComma(this.Stock[i].valTrade);
-          this.Stock[i].valCur = priceComma(this.Stock[i].valCur);
-          this.Stock[i].valEvalu = priceComma(this.Stock[i].valEvalu);
-          this.Stock[i].profit = priceComma(this.Stock[i].profit);
-          // console.log(findStock('000020'));
-        }
-        this.totalEarningRate = (this.totalProfit / this.total) * 100;
-        this.totalEarningRate = this.totalEarningRate.toFixed(2);
-        this.totalProperty = priceComma(this.totalProperty);
-        this.totalProfit = priceComma(this.totalProfit);
-      })
-      .catch(err => {
-        console.log('err', err);
-      })
+    // await axios.get('/api/stock/search/' + this.$route.params.id)
+    //   .then(res => {
+    //     const msg = res.data;
+    //     this.Stock = msg;
+    //     console.log(+ this.$route.params.id + " : " + this.Stock);
+    //     for(var i=0; i<this.Stock.length; i++){
+    //       this.totalProperty += this.Stock[i].valEvalu;
+    //       this.totalProfit += this.Stock[i].profit;
+    //       this.total += this.Stock[i].valTrade * this.Stock[i].qty;
+    //       this.Stock[i].valTrade = priceComma(this.Stock[i].valTrade);
+    //       this.Stock[i].valCur = priceComma(this.Stock[i].valCur);
+    //       this.Stock[i].valEvalu = priceComma(this.Stock[i].valEvalu);
+    //       this.Stock[i].profit = priceComma(this.Stock[i].profit);
+    //     }
+    //     this.totalEarningRate = (this.totalProfit / this.total) * 100;
+    //     this.totalEarningRate = this.totalEarningRate.toFixed(2);
+    //     this.totalProfit = priceComma(this.totalProfit);
+    //     this.totalProperty = priceComma(this.totalProperty);
+    //   })
+    //   .catch(err => {
+    //     console.log('err', err);
+    //   })
 
       console.log("2 : " + this.Stock);
+
+      await axios.post('/api/subscribe/check', this.form)
+        .then(res => {
+          if(res.data.code == "OK"){
+            this.checkSubscribe = true;
+          }
+        })
   },
   methods: {
     priceComma,
