@@ -564,7 +564,7 @@ export default {
   }),
   async created(){
     console.log("neighbor id: "+ this.$route.params.id);
-    await axios.get('/api/member/search/' + this.$route.params.id)
+    axios.get('/api/member/search/' + this.$route.params.id)
       .then(res => {
         console.log(res.data);
         this.name = res.data.name,

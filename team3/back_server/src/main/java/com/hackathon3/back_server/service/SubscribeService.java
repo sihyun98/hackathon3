@@ -15,6 +15,7 @@ import com.hackathon3.back_server.dto.member.MemberSearchResponseDto;
 import com.hackathon3.back_server.dto.stock.StockSearchResponseDto;
 import com.hackathon3.back_server.dto.subscribe.SubscribeSaveRequestDto;
 import com.hackathon3.back_server.dto.subscribe.SubscribeSaveResponseDto;
+import com.hackathon3.back_server.dto.subscribe.SubscribeSearchResponseDto;
 import com.hackathon3.back_server.repository.MemberRepository;
 import com.hackathon3.back_server.repository.MemberRepositorySupport;
 import com.hackathon3.back_server.repository.StockRepository;
@@ -43,7 +44,7 @@ public class SubscribeService {
 		
 		if(member != null) {
 			
-			List<Subscribe> subscribers = subscribeRepositorySupport.likes(member);
+			List<Subscribe> subscribers = subscribeRepositorySupport.likes(id);
 			
 			for(Subscribe subscriber : subscribers) {
 				
@@ -72,26 +73,50 @@ public class SubscribeService {
 	
 	// POST - 구독
 	@Transactional
-	public SubscribeSaveResponseDto save(Long id, SubscribeSaveRequestDto requestDto) {
+	public SubscribeSaveResponseDto save(SubscribeSaveRequestDto requestDto) {
 		
-		Member member = memberRepositorySupport.existMember(id);
   	  	SubscribeSaveResponseDto dto = new SubscribeSaveResponseDto();
-
-		if(member != null) {
 		
+  	  	Subscribe exists = subscribeRepositorySupport.check(requestDto.getMy_id(), requestDto.getSubscriber_id());
+  	  	
+  	  	if(exists == null) {
+  	  	
 			Subscribe subscribe = new Subscribe();
-			subscribe.setMember(requestDto.getMember());
+	//		subscribe.setId(requestDto.getId());
+			subscribe.setMy_id(requestDto.getMy_id());
 			subscribe.setSubscriber_id(requestDto.getSubscriber_id());
 			
 	  	  	Long index = subscribeRepository.save(subscribe).getId();
 	  	  	
 	  	  	dto.setCode("OK");
 	  	  	dto.setMessage(String.valueOf(index));
-		}
-		else {
-			dto.setCode("FAIL");
-	  	  	dto.setMessage(String.valueOf(0));
-		}
+			
+  	  	}
+  	  	else {
+  	  		dto.setCode("FAIL");
+  	  		dto.setMessage("이미 구독한 회원입니다.");
+  	  	}
   	  	return dto;
+	}
+	
+	// GET - 모든 구독 정보 가져오기
+	@Transactional(readOnly = true)
+	public List<SubscribeSearchResponseDto> search() {
+		
+		// 회원 정보를 저장할 배열
+		List<SubscribeSearchResponseDto> subscribeSearchResponseDto = new ArrayList<SubscribeSearchResponseDto>();
+		List<Subscribe> subscribers = subscribeRepository.findAll();
+		
+		for(Subscribe subscriber : subscribers) {
+			
+			SubscribeSearchResponseDto dto = new SubscribeSearchResponseDto();
+			dto.setMy_id(subscriber.getMy_id());
+			dto.setSubscriber_id(subscriber.getSubscriber_id());
+					
+			subscribeSearchResponseDto.add(dto);
+			
+		}
+		
+		return subscribeSearchResponseDto;
 	}
 }

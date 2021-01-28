@@ -671,7 +671,7 @@ class LoadDatabase {
 	    	  
 	    	  
 	    	  Subscribe subscribe1_1 = new Subscribe();
-	    	  subscribe1_1.setMember(member1);
+	    	  subscribe1_1.setMy_id(Long.valueOf(1));
 	    	  subscribe1_1.setSubscriber_id(Long.valueOf(2));
 	    	  log.info("Preloading " + subscribeRepository.save(subscribe1_1));
 	    	  

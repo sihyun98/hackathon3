@@ -19,10 +19,11 @@ public class Subscribe {
 	
 	private @Id @GeneratedValue @Column(name = "subscribe_id") Long id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "member_id")	
-	private Member member;
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "member_id")	
+//	private Member member;
 	
+	private Long my_id;
 	private Long subscriber_id;
 
 	@Override
