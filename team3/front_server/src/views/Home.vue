@@ -203,7 +203,7 @@
                 </v-list-item-avatar>
                 <v-list-item-content>                    
                     <v-list-item-subtitle>총 자산</v-list-item-subtitle>
-                    <v-list-item-title>2,000,000원</v-list-item-title>                    
+                    <v-list-item-title>{{ totalProperty }}원</v-list-item-title>                    
                 </v-list-item-content>
                 
               </v-list-item>
@@ -228,7 +228,7 @@
                 </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-subtitle>손익</v-list-item-subtitle>
-                  <v-list-item-title>1,000,000원</v-list-item-title>
+                  <v-list-item-title>{{ totalProfit }}원</v-list-item-title>
                   <!-- <v-list-item-subtitle>Incurable</v-list-item-subtitle> -->
                 </v-list-item-content>
               </v-list-item>
@@ -253,7 +253,7 @@
                 </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-subtitle>수익률</v-list-item-subtitle>
-                  <v-list-item-title>50%</v-list-item-title>
+                  <v-list-item-title>{{ totalEarningRate }}%</v-list-item-title>
                   <!-- <v-list-item-subtitle>Examiniations</v-list-item-subtitle> -->
                 </v-list-item-content>
               </v-list-item>
@@ -460,59 +460,6 @@ export default {
       // { text: '종목코드', value: 'isuSrtCd' },
     ],
     Stock: [],
-    // desserts: [
-    //   {
-    //     type: '국내주식',
-    //     stockNm: '삼성전자',
-    //     valEvalu: '880,000원',
-    //     earningRate: '25.71%',
-    //     profit: '180,000원',
-    //     qty: 10,
-    //     valTrade: '70,000원',
-    //     valstock: '88,000원',
-    //   },
-    //   {
-    //     type: '국내주식',
-    //     stockNm: '대한항공',
-    //     valEvalu: '303000원',
-    //     earningRate: '21.20%',
-    //     profit: '53,000원',
-    //     qty: 10,
-    //     valTrade: '25,000원',
-    //     valstock: '30,300원',
-    //   },
-    //   {
-    //     type: '국내주식',
-    //     stockNm: '기아차',
-    //     valEvalu: '892,000원',
-    //     earningRate: '4.94%',
-    //     profit: '42,000원',
-    //     qty: 10,
-    //     valTrade: '85,000원',
-    //     valstock: '89,200원',
-    //   },
-    //   {
-    //     type: '국내주식',
-    //     stockNm: 'LG전자',
-    //     valEvalu: '511,500원',
-    //     earningRate: '3.33%',
-    //     profit: '16,500원',
-    //     qty: 3,
-    //     valTrade: '170,500원',
-    //     valstock: '495,000원',
-    //   },
-    //   {
-    //     type: '국내주식',
-    //     stockNm: '현대차',
-    //     valEvalu: '1,272,500원',
-    //     earningRate: '10.65%',
-    //     profit: '122,500원',
-    //     qty: 5,
-    //     valTrade: '230,000원',
-    //     valstock: '254,500원',
-    //   },
-      
-    // ],
     name: '',
     username: '',
     password: '',
@@ -523,6 +470,10 @@ export default {
     salary: '',
     property: '',
     profile: '',
+    totalProperty: 0,
+    totalProfit: 0,
+    totalEarningRate: 0,
+    total: 0,
   }),
   async created(){
     console.log("userid : " + this.$session.get('user_no'));
@@ -556,11 +507,20 @@ export default {
         const msg = res.data;
         this.Stock = msg;
         for(var i=0; i<this.Stock.length; i++){
+          this.totalProperty += this.Stock[i].valEvalu;
+          this.totalProfit += this.Stock[i].profit;
+          this.total += this.Stock[i].valTrade * this.Stock[i].qty;
           this.Stock[i].valTrade = priceComma(this.Stock[i].valTrade);
           this.Stock[i].valCur = priceComma(this.Stock[i].valCur);
           this.Stock[i].valEvalu = priceComma(this.Stock[i].valEvalu);
           this.Stock[i].profit = priceComma(this.Stock[i].profit);
+          // this.totalProperty += this.Stock[i].valEvalu;
         }
+        this.totalEarningRate = (this.totalProfit / this.total) * 100;
+        this.totalEarningRate = this.totalEarningRate.toFixed(2);
+        this.totalProperty = priceComma(this.totalProperty);
+        this.totalProfit = priceComma(this.totalProfit);
+        // this.totalEarningRate = (this.totalProfit / this.total) * 100;
       })
       .catch(err => {
         console.log('err', err);

@@ -24,11 +24,19 @@ private final JPAQueryFactory queryFactory;
 		this.queryFactory = queryFactory;
 	}
 	
-	public List<Subscribe> likes(Member member){
+	public List<Subscribe> likes(Long id){
 		
 		return queryFactory.selectFrom(subscribe)
-				.where(subscribe.member.eq(member))
+				.where(subscribe.my_id.eq(id))
 				.fetch();
+	}
+	
+	public Subscribe check(Long myid, Long subscriberid){
+		
+		return queryFactory.selectFrom(subscribe)
+				.where(subscribe.my_id.eq(myid))
+				.where(subscribe.subscriber_id.eq(subscriberid))
+				.fetchOne();
 	}
 	
 }
