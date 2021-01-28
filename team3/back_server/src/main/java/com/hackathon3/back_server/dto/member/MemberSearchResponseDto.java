@@ -24,6 +24,7 @@ public class MemberSearchResponseDto {
 	private int salary;
 	private int property;
 	private String profile;
+	
 //	private List<Stock> stocks = new ArrayList<>();
 
 }
