@@ -339,6 +339,34 @@ class LoadDatabase {
 	    	  stock1_5.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock1_5));
 	    	  
+	    	  Stock stock1_6 = new Stock();
+	    	  stock1_6.setBalanceNo("123456789");
+	    	  stock1_6.setMember(member1);
+//	    	  stock1_5.setMemberId(member1.getId());
+	    	  stock1_6.setFirmNm("NH투자증권");
+	    	  stock1_6.setStockNm("NH-Amundi코리아2배레버리지증권투자");
+	    	  stock1_6.setQty(1);
+	    	  stock1_6.setValTrade(3000000);
+	    	  stock1_6.setValCur(3240000);
+	    	  stock1_6.setAssertType("펀드");
+	    	  stock1_6.setIsuSrtCd("");
+	    	  stock1_6.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock1_6));
+	    	  
+	    	  Stock stock1_7 = new Stock();
+	    	  stock1_7.setBalanceNo("123456789");
+	    	  stock1_7.setMember(member1);
+//	    	  stock1_5.setMemberId(member1.getId());
+	    	  stock1_7.setFirmNm("");
+	    	  stock1_7.setStockNm("Bitcoin");
+	    	  stock1_7.setQty(1);
+	    	  stock1_7.setValTrade(2120000);
+	    	  stock1_7.setValCur(1540000);
+	    	  stock1_7.setAssertType("암호화폐");
+	    	  stock1_7.setIsuSrtCd("");
+	    	  stock1_7.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock1_7));
+	    	  
 	    	  
 	    	  //회원2
 	    	  Stock stock2_1 = new Stock();
