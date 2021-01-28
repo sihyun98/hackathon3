@@ -86,13 +86,6 @@
                   <v-divider></v-divider>
                 </v-list>
 
-                <!-- <v-list two-line="" subheader="" class="mt-n5">
-                  <v-list-item>
-                    <v-list-item-title>투자성향</v-list-item-title>
-                    <v-list-item-subtitle>단타위주</v-list-item-subtitle>
-                  </v-list-item>               
-                </v-list> -->
-
                 <!-- 왼쪽 프로필 Box2-2  -------------------->
                 <!--투자성향, 연봉, 재산: 회원 DB -->
                 <v-list two-line="" subheader="">
@@ -143,68 +136,144 @@
                   </v-list-item>
                   <v-divider></v-divider>
                 </v-list>
-
               </v-card>
-            </v-flex>            
+            </v-flex>      
+
           </v-container>
         </v-app>
       </v-flex>
 
-  <!-- 오른쪽 화면-------------------------------------------->
-  <v-flex md9 >
-    <v-app :style="{background: $vuetify.theme.themes.dark.background}" class="rounded">
-      <v-container>
-        <v-flex>
-          <v-list class="mt-5" align="center" justify="center">
-            <v-list-item>
-              <v-list-item-title class="orange--text text--darken-3">오늘의 Ranking</v-list-item-title>
-                <v-list-item-action>
-                  <!-- SEE-ALL 버튼 숨김 -->
-                  <!-- <v-btn class="ma-2" tile outlined="" color="orange darken-3"> -->
-                    <!-- <v-icon left>fas fa-eye</v-icon> See ALL -->
-                  <!-- </v-btn> -->
-                </v-list-item-action>             
+        <!-- 오른쪽 화면-------------------------------------------->
+    <v-flex md9>
+        <v-app :style="{background: $vuetify.theme.themes.dark.background}" class="rounded">
+        <v-container>
+            <v-flex>
+                <v-list class="mt-5">
+                    <v-list-item>
+                    <v-list-item-title class="orange--text text--darken-3">오늘의 투자왕</v-list-item-title>
+                        <v-list-item-action>
+                        <!-- SEE-ALL 버튼 숨김 -->
+                        <!-- <v-btn class="ma-2" tile outlined="" color="orange darken-3"> -->
+                            <!-- <v-icon left>fas fa-eye</v-icon> See ALL -->
+                        <!-- </v-btn> -->
+                        </v-list-item-action>
+                    </v-list-item>
+                </v-list>
+            </v-flex>  
+   
+            <v-flex>    
+                <v-row no-gutter>   
+                <!-- 오른쪽 상단 BOX1 --------------------------------------->   
+                <v-col cols="12" md="4">
+                    <v-row>                        
+                        <v-col cols="12" md="2">
+                            <!-- <v-card height="80px" width="10px" color="orange darken-1"></v-card> -->
+                        </v-col>
+                        <v-col cols="12" md="10">   
+                            <!-- <v-card>          -->
+                            <v-list two-line="" subheader="" class="ml-n8" >
+                            <v-list-item>
+                                <!-- <spa -->
+                                <v-list-item-avatar size="60" >
+                                    <img src="../assets/crown1.png">
+                                </v-list-item-avatar>
+                                <v-list-item-content>                    
+                                    <v-list-item-subtitle>총 자산</v-list-item-subtitle>
+                                    <v-list-item-title>{{ totalProperty }}원</v-list-item-title>                    
+                                </v-list-item-content>
+                                
+                            </v-list-item>
+                            </v-list>   
+                            <!-- </v-card>                          -->
+                        </v-col>                        
+                    </v-row>
+                </v-col>
 
-            </v-list-item>
-          </v-list>          
-        </v-flex>  
+                <!-- 오른쪽 상단 BOX2 --------------------------------------->
+                <v-col cols="12" md="4">
+                    <v-row>                        
+                        <v-col cols="12" md="2">
+                            <!-- <v-card height="80px" width="10px" color="orange darken-1"></v-card> -->
+                        </v-col>
+                        <v-col cols="12" md="10">   
+                            <!-- <v-card>          -->
+                            <v-list two-line="" subheader="" class="ml-n8" >
+                            <v-list-item>
+                                <!-- <spa -->
+                                <v-list-item-avatar size="60" >
+                                    <img src="../assets/crown2.png">
+                                </v-list-item-avatar>
+                                <v-list-item-content>                    
+                                    <v-list-item-subtitle>총 자산</v-list-item-subtitle>
+                                    <v-list-item-title>{{ totalProperty }}원</v-list-item-title>                    
+                                </v-list-item-content>
+                                
+                            </v-list-item>
+                            </v-list>   
+                            <!-- </v-card>                          -->
+                        </v-col>                        
+                    </v-row>
+                </v-col>
 
-        <v-flex class="mt-5" >
-            <v-row align="center" justify="center">
-            <v-col>
+                <!-- 오른쪽 상단 BOX3 --------------------------------------->
+                <v-col cols="12" md="4">
+                    <v-row>                        
+                        <v-col cols="12" md="2">
+                            <!-- <v-card height="80px" width="10px" color="orange darken-1"></v-card> -->
+                        </v-col>
+                        <v-col cols="12" md="10">   
+                            <!-- <v-card>          -->
+                            <v-list two-line="" subheader="" class="ml-n8" >
+                            <v-list-item>
+                                <!-- <spa -->
+                                <v-list-item-avatar size="60" >
+                                    <img src="../assets/crown3.png">
+                                </v-list-item-avatar>
+                                <v-list-item-content>                    
+                                    <v-list-item-subtitle>총 자산</v-list-item-subtitle>
+                                    <v-list-item-title>{{ totalProperty }}원</v-list-item-title>                    
+                                </v-list-item-content>
+                                
+                            </v-list-item>
+                            </v-list>   
+                            <!-- </v-card>                          -->
+                        </v-col>                        
+                    </v-row>
+                </v-col>
+
+                </v-row>
+            </v-flex>
+
+            <!-- 오른쪽 하단 -->
+            <v-flex class="mt-12">
+                <v-list>
+                <v-list-item>
+                    <v-list-item-title class="orange--text text--darken-3">옆집 개미</v-list-item-title>
+                </v-list-item>
+                </v-list>
+
                 <v-card>
-                  <v-card-title>
+                    <v-card-title>
                     <v-text-field
-                      v-model="search"
-                      append-icon="mdi-magnify"
-                      label="Search"
-                      single-line
-                      hide-details
+                        v-model="search"
+                        append-icon="mdi-magnify"
+                        label="Search"
+                        single-line
+                        hide-details
                     ></v-text-field>
-                  </v-card-title>
-                  <v-data-table 
-                  :headers="headers"
-                  :items="ranking"
-                  :search="search"
-                  @click:row="handleClick"
-                  >                  
-                  </v-data-table>
-                        
+                    </v-card-title>
+                    <v-data-table
+                    :headers="headers"
+                    :items="RankingList"
+                    :search="search"
+                    @click:row="handleClick"
+                    ></v-data-table>
                 </v-card>
-            </v-col>
-            </v-row>
-        </v-flex>
-<!-- 
-  <v-flex class="mt-12">
-    <v-row no-gutters="">
-      <v-col cols="12" md="4"> -->
+            </v-flex>
 
-
-
-      </v-container>
-
-    </v-app>
-  </v-flex>
+          </v-container>
+         </v-app>
+        </v-flex>  
     </v-layout>
   </v-app>
 </template>
@@ -282,99 +351,15 @@ export default {
         value: 'ranking',
         align: "center",
       },
-      { text: '아이디', value: 'id', align: "center"},
+    //   { text: '아이디', value: 'id', align: "center"},
       { text: '이름', value: 'name', align: "center"},
       { text: '레벨', value: 'grade', align: "center" },
       { text: '투자성향', value: 'investOpt', align: "center" },    
       { text: '수익률', value: 'earningRate', align: "center" },
-    //   { text: '구독', value: 'subscribe', align: "center" },
       
     ],
-    ranking: [],
-    // desserts: [
-    //   {
-    //     id: '2',
-    //     name: '윤하은',
-    //     grade: 'LV.2 초개미',
-    //     investOpt: '단타위주',
-    //     ranking: '2위',
-    //     earningRate: '25.71%',
-    //     move: '놀러가기',
-    //   },
-    //   {
-    //     id: '3',
-    //     name: '안기현',
-    //     grade: 'LV3. 노개미',
-    //     investOpt: '투자주식',
-    //     ranking: '3위',
-    //     earningRate: '25.71%',
-    //     move: '놀러가기',
-    //   },
-    //   {
-    //     id: '4',
-    //     name: '조태율',
-    //     grade: 'LV4. 빨개미',
-    //     investOpt: '투자주식',
-    //     ranking: '4위',
-    //     earningRate: '25.71%',
-    //     move: '놀러가기',
-    //   },
-    //   {
-    //     id: '5',
-    //     name: '노영록',
-    //     grade: 'LV.1 파개미',
-    //     investOpt: '투자주식',
-    //     ranking: '5위',
-    //     earningRate: '25.71%',
-    //     move: '놀러가기',
-    //   },
-    //   {
-    //     id: '6',
-    //     name: '이예은',
-    //     grade: 'LV.2 초개미',
-    //     investOpt: '투자주식',
-    //     ranking: '6위',
-    //     earningRate: '25.71%',
-    //     move: '놀러가기',
-    //   },
-    //   {
-    //     id: '7',
-    //     name: '이영인',
-    //     grade: 'LV3. 노개미',
-    //     investOpt: '투자주식',
-    //     ranking: '7위',
-    //     earningRate: '25.71%',
-    //     move: '놀러가기',
-    //   },
-    //   {
-    //     id: '8',
-    //     name: '박용수',
-    //     grade: 'LV4. 빨개미',
-    //     investOpt: '위험은조금만',
-    //     ranking: '8위',
-    //     earningRate: '25.71%',
-    //     move: '놀러가기',
-    //   },
-    //   {
-    //     id: '9',
-    //     name: '김태현',
-    //     grade: 'LV.1 파개미',
-    //     investOpt: '위험은조금만',
-    //     ranking: '9위',
-    //     earningRate: '25.71%',
-    //     move: '놀러가기',
-    //   },
-    //   {
-    //     id: '10',
-    //     name: '김수아',
-    //     grade: 'LV.2 초개미',
-    //     investOpt: '투자주식',
-    //     ranking: '10위',
-    //     earningRate: '25.71%',
-    //     move: '놀러가기',
-    //   },
-      
-    // ],
+    RankingList: [],
+    
 
     name: '',
     username: '',
@@ -407,14 +392,14 @@ export default {
         console.log('err', err);
       })
 
-// subscribers list
+// ranking list
 
-      await axios.get('/api/member/likes/' + this.$route.params.id)
+      await axios.get('/api/member/neighbors/' + this.$session.get('user_no'))
       .then(res => {
         const msg = res.data;
-        this.subscribes = msg;
-        for(var i=0; i<this.subscribes.length; i++){
-          this.subscribes[i].valTrade = priceComma(this.subscribes[i].valTrade);
+        this.RankingList = msg;
+        for(var i=0; i<this.RankingList.length; i++){
+          this.RankingList[i].valTrade = priceComma(this.RankingList[i].valTrade);
         }
       })
       .catch(err => {

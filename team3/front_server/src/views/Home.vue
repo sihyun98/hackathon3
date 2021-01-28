@@ -223,8 +223,12 @@
               <v-list-item>
                 <!-- 데이터에 따라 up down if문 작성 -->
                 <v-list-item-avatar size="60" >
-                    <v-icon color="red accent-4" size="30">fas fa-sort-up</v-icon>  
-                    <!-- <v-icon color="blue darken-4" size="30">fas fa-sort-down</v-icon>   -->
+                    <div v-if="totalProfit >= 0 ">
+                      <v-icon color="red accent-4" size="30">fas fa-sort-up</v-icon>
+                    </div>
+                    <div v-else>
+                      <v-icon color="light-blue darken-2" size="30">fas fa-sort-down</v-icon>
+                    </div>
                 </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-subtitle>손익</v-list-item-subtitle>
@@ -248,8 +252,12 @@
               <v-list-item>
                 <!-- 데이터에 따라 up down if문 작성 -->
                 <v-list-item-avatar size="60" >
-                    <v-icon color="red accent-4" size="30">fas fa-sort-up</v-icon>  
-                    <!-- <v-icon color="blue darken-4" size="30">fas fa-sort-down</v-icon>   -->
+                    <div v-if="totalEarningRate >= 0 ">
+                      <v-icon color="red accent-4" size="30">fas fa-sort-up</v-icon>
+                    </div>
+                    <div v-else>
+                      <v-icon color="light-blue darken-2" size="30">fas fa-sort-down</v-icon>
+                    </div>
                 </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-subtitle>수익률</v-list-item-subtitle>
