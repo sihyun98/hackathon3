@@ -58,7 +58,7 @@ public class StockService {
 				}
 				
 				dto.setEarningRate((dto.getValCur() - stock.getValTrade()) * 100 / stock.getValTrade());
-				dto.setValEvalu(dto.getValTrade() * dto.getQty());
+				dto.setValEvalu(dto.getValCur() * dto.getQty());
 				dto.setProfit(dto.getValCur() - dto.getValTrade());
 				
 				stockSearchResponseDto.add(dto);
