@@ -51,7 +51,12 @@ public class StockService {
 				dto.setIsuSrtCd(stock.getIsuSrtCd());
 				
 				try {
-					dto.setValCur(KoscomApi.currentPrice(stock.getIsuSrtCd()));
+					if(dto.getAssertType() == "주식") {
+						dto.setValCur(KoscomApi.currentPrice(stock.getIsuSrtCd()));
+					}
+					else {
+						dto.setValCur(stock.getValCur());
+					}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

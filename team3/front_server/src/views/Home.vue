@@ -514,6 +514,9 @@ export default {
           this.Stock[i].valCur = priceComma(this.Stock[i].valCur);
           this.Stock[i].valEvalu = priceComma(this.Stock[i].valEvalu);
           this.Stock[i].profit = priceComma(this.Stock[i].profit);
+          if(this.Stock[i].assertType != '주식'){
+            this.Stock[i].isuKorNm = this.Stock[i].stockNm;
+          }
           // this.totalProperty += this.Stock[i].valEvalu;
         }
         this.totalEarningRate = (this.totalProfit / this.total) * 100;
@@ -526,20 +529,31 @@ export default {
         console.log('err', err);
       })
 
-    await axios.get('/api/stock/code/search/' + this.Stock[0].isuSrtCd)
-    .then(res => {
-      this.Stock[0].isuKorNm = res.data.isuKorNm;
-    })
+    if(this.Stock[0].assertType == '주식'){
+      await axios.get('/api/stock/code/search/' + this.Stock[0].isuSrtCd)
+      .then(res => {
+        this.Stock[0].isuKorNm = res.data.isuKorNm;
+      })
+    }
+    else{
+      this.Stock[0].isuKorNm = this.Stock[0].stockNm;
+    }
 
-    await axios.get('/api/stock/code/search/' + this.Stock[1].isuSrtCd)
-    .then(res => {
-      this.Stock[1].isuKorNm = res.data.isuKorNm;
-    })
+    if(this.Stock[1].assertType == '주식'){
+      await axios.get('/api/stock/code/search/' + this.Stock[1].isuSrtCd)
+      .then(res => {
+        this.Stock[1].isuKorNm = res.data.isuKorNm;
+      })
+    }
+    else{
+      this.Stock[1].isuKorNm = this.Stock[1].stockNm;
+    }
 
     await axios.get('/api/stock/code/search/' + this.Stock[2].isuSrtCd)
     .then(res => {
       this.Stock[2].isuKorNm = res.data.isuKorNm;
     })
+
 
     await axios.get('/api/stock/code/search/' + this.Stock[3].isuSrtCd)
     .then(res => {
