@@ -218,6 +218,7 @@ public class MemberService {
 				dto.setSalary(member.getSalary());
 				dto.setProperty(member.getProperty());
 				dto.setProfile(member.getProfile());
+				dto.setTotalEarning(member.getTotalEarning());
 						
 				memberSearchResponseDto.add(dto);
 			}

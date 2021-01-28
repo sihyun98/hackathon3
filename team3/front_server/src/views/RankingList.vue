@@ -22,13 +22,13 @@
                     <!-- 순위, 구독자, 수익률: TEXT  -->
                     <v-list-item-title class="orange--text text--darken-3">순위</v-list-item-title>
                     <v-list-item-title class="orange--text text--darken-3">구독자</v-list-item-title>
-                    <v-list-item-title class="orange--text text--darken-3">수익률</v-list-item-title>
+                    <v-list-item-title class="orange--text text--darken-3">3개월 수익률</v-list-item-title>
                   </v-list-item>
                   <v-list-item class="mt-n5">
                     <!-- 순위: 계산, 구독자: 구독 DB, 수익률: 계산 -->
                     <v-list-item-subtitle>1위</v-list-item-subtitle>
                     <v-list-item-subtitle>1.2만</v-list-item-subtitle>
-                    <v-list-item-subtitle>543%</v-list-item-subtitle>
+                    <v-list-item-subtitle>{{ totalEarning }}%</v-list-item-subtitle>
                   </v-list-item>
                 </v-list>
               </v-card>
@@ -357,9 +357,8 @@ export default {
       { text: '레벨', value: 'grade', align: "center" },
       { text: '나이', value: 'age', align: "center" },   
       { text: '직업', value: 'job', align: "center" },   
-      { text: '투자성향', value: 'investOpt', align: "center" },    
-      { text: '순위', value: 'ranking', align: "center" },   
-      { text: '수익률', value: 'earningRate', align: "center" },
+      { text: '투자성향', value: 'investOpt', align: "center" },       
+      { text: '수익률', value: 'totalEarning', align: "center" },
       
     ],
     RankingList: [],
@@ -390,7 +389,8 @@ export default {
         this.investOpt = res.data.investOpt,
         this.salary = priceComma(res.data.salary),
         this.property = priceComma(res.data.property),
-        this.profile = res.data.profile
+        this.profile = res.data.profile,
+        this.totalEarning = res.data.totalEarning
       })
       .catch(err => {
         console.log('err', err);

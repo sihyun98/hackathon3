@@ -287,7 +287,6 @@ export default {
       { text: '나이', value: 'age', align: "center" },   
       { text: '직업', value: 'job', align: "center" },   
       { text: '투자성향', value: 'investOpt', align: "center" },    
-      { text: '순위', value: 'ranking', align: "center" },
       { text: '수익률', value: 'totalEarning', align: "center" },
       
     ],

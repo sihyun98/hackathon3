@@ -29,12 +29,12 @@
                         <v-list-item-subtitle align="center">옆집</v-list-item-subtitle>
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item router to="/">
+                <!-- <v-list-item router to="/">
                     <v-list-item-content>
                         <v-icon class="mb-2">fas fa-list</v-icon>
                         <v-list-item-subtitle align="center">게시판</v-list-item-subtitle>
                     </v-list-item-content>
-                </v-list-item>
+                </v-list-item> -->
                 <!-- <v-list-item router to="/">
                     <v-list-item-content>
                         <v-icon class="mb-2">fas fa-signature</v-icon>

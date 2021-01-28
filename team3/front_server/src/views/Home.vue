@@ -28,7 +28,7 @@
                     <!-- 순위: 계산, 구독자: 구독 DB, 수익률: 계산 -->
                     <v-list-item-subtitle>1위</v-list-item-subtitle>
                     <v-list-item-subtitle>1.2만</v-list-item-subtitle>
-                    <v-list-item-subtitle>543%</v-list-item-subtitle>
+                    <v-list-item-subtitle>{{ totalEarning }}%</v-list-item-subtitle>
                   </v-list-item>
                 </v-list>
               </v-card>
@@ -483,7 +483,7 @@ export default {
     totalProfit: 0,
     totalEarningRate: 0,
     total: 0,
-
+    totalEarning: 0,
   }),
   async created(){
     // this.renderChart(this.chartData, this.options)
@@ -507,7 +507,8 @@ export default {
         this.investOpt = res.data.investOpt,
         this.salary = priceComma(res.data.salary),
         this.property = priceComma(res.data.property),
-        this.profile = res.data.profile
+        this.profile = res.data.profile,
+        this.totalEarning = res.data.totalEarning
       })
       .catch(err => {
         console.log('err', err);

@@ -28,7 +28,7 @@
                     <!-- 순위: 계산, 구독자: 구독 DB, 수익률: 계산 -->
                     <v-list-item-subtitle>1위</v-list-item-subtitle>
                     <v-list-item-subtitle>1.2만</v-list-item-subtitle>
-                    <v-list-item-subtitle>{{ totalEarning }}</v-list-item-subtitle>
+                    <v-list-item-subtitle>{{ totalEarning }}%</v-list-item-subtitle>
                   </v-list-item>
                 </v-list>
               </v-card>
