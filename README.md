@@ -20,7 +20,16 @@ $workspace/hackathon3/team3/back_server/
 STEP2.
 run BackServerApplication
 
+or
+
+STEP1.
+mvn package
+
+STEP2.
+Move to target folder
+java -jar *.jar
+
 
 *Access web service
 local   : http://localhost:3000/
-Network : http://54.180.96.11:3000/
+Network : http://15.164.48.9:3000//
