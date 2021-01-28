@@ -36,6 +36,8 @@ public class KoscomApi {
 	    int start = sb.toString().indexOf("isuKorNm", index);
 	    int end = sb.toString().indexOf("isuKorAbbr", index);
 	    String name = sb.toString().substring(start+11, end-3);
+	    
+	    System.out.println(name);
 
 		return name;
 	    
