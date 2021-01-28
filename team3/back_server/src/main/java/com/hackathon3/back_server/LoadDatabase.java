@@ -668,6 +668,183 @@ class LoadDatabase {
 	    	  log.info("Preloading " + stockRepository.save(stock13_3));
 	    	  
 	    	  
+	    	  //회원14
+	    	  Stock stock14_1 = new Stock();
+	    	  stock14_1.setBalanceNo("1412341234");
+	    	  stock14_1.setMember(member14);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock14_1.setFirmNm("NH투자증권");
+	    	  stock14_1.setStockNm("일양약품");
+	    	  stock14_1.setQty(500);
+	    	  stock14_1.setValTrade(56000);
+	    	  stock14_1.setValCur(52600);
+	    	  stock14_1.setAssertType("주식");
+	    	  stock14_1.setIsuSrtCd("007570");
+	    	  stock14_1.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock14_1));
+	    	  
+	    	  Stock stock14_2 = new Stock();
+	    	  stock14_2.setBalanceNo("1412341234");
+	    	  stock14_2.setMember(member14);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock14_2.setFirmNm("NH투자증권");
+	    	  stock14_2.setStockNm("신풍제약");
+	    	  stock14_2.setQty(500);
+	    	  stock14_2.setValTrade(31000);
+	    	  stock14_2.setValCur(89000);
+	    	  stock14_2.setAssertType("주식");
+	    	  stock14_2.setIsuSrtCd("019170");
+	    	  stock14_2.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock14_2));
+	    	  
+	    	  
+	    	  //회원15
+	    	  Stock stock15_1 = new Stock();
+	    	  stock15_1.setBalanceNo("1512341234");
+	    	  stock15_1.setMember(member15);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock15_1.setFirmNm("삼성증권");
+	    	  stock15_1.setStockNm("삼성전자");
+	    	  stock15_1.setQty(500);
+	    	  stock15_1.setValTrade(44000);
+	    	  stock15_1.setValCur(85600);
+	    	  stock15_1.setAssertType("주식");
+	    	  stock15_1.setIsuSrtCd("007570");
+	    	  stock15_1.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock15_1));
+	    	  
+	    	  
+	    	  //회원16
+	    	  Stock stock16_1 = new Stock();
+	    	  stock16_1.setBalanceNo("1612341234");
+	    	  stock16_1.setMember(member16);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock16_1.setFirmNm("키움증권");
+	    	  stock16_1.setStockNm("대한항공");
+	    	  stock16_1.setQty(2000);
+	    	  stock16_1.setValTrade(27000);
+	    	  stock16_1.setValCur(30400);
+	    	  stock16_1.setAssertType("주식");
+	    	  stock16_1.setIsuSrtCd("003490");
+	    	  stock16_1.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock16_1));
+	    	  
+	    	  Stock stock16_2 = new Stock();
+	    	  stock16_2.setBalanceNo("1612341234");
+	    	  stock16_2.setMember(member16);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock16_2.setFirmNm("키움증권");
+	    	  stock16_2.setStockNm("대한항공우");
+	    	  stock16_2.setQty(2000);
+	    	  stock16_2.setValTrade(35500);
+	    	  stock16_2.setValCur(44850);
+	    	  stock16_2.setAssertType("주식");
+	    	  stock16_2.setIsuSrtCd("003495");
+	    	  stock16_2.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock16_2));
+	    	  
+	    	  Stock stock16_3 = new Stock();
+	    	  stock16_3.setBalanceNo("1612341234");
+	    	  stock16_3.setMember(member16);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock16_3.setFirmNm("키움증권");
+	    	  stock16_3.setStockNm("삼성전자");
+	    	  stock16_3.setQty(500);
+	    	  stock16_3.setValTrade(91000);
+	    	  stock16_3.setValCur(85600);
+	    	  stock16_3.setAssertType("주식");
+	    	  stock16_3.setIsuSrtCd("005930");
+	    	  stock16_3.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock16_3));
+	    	  
+	    	  Stock stock16_4 = new Stock();
+	    	  stock16_4.setBalanceNo("1612341234");
+	    	  stock16_4.setMember(member16);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock16_4.setFirmNm("키움증권");
+	    	  stock16_4.setStockNm("금호석유우");
+	    	  stock16_4.setQty(300);
+	    	  stock16_4.setValTrade(81000);
+	    	  stock16_4.setValCur(109000);
+	    	  stock16_4.setAssertType("주식");
+	    	  stock16_4.setIsuSrtCd("011785");
+	    	  stock16_4.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock16_4));
+	    	  
+	    	  
+	    	  //회원17
+	    	  Stock stock17_1 = new Stock();
+	    	  stock17_1.setBalanceNo("1712341234");
+	    	  stock17_1.setMember(member17);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock17_1.setFirmNm("NH투자증권");
+	    	  stock17_1.setStockNm("대한항공");
+	    	  stock17_1.setQty(2000);
+	    	  stock17_1.setValTrade(14900);
+	    	  stock17_1.setValCur(30400);
+	    	  stock17_1.setAssertType("주식");
+	    	  stock17_1.setIsuSrtCd("003490");
+	    	  stock17_1.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock17_1));
+	    	  
+	    	  Stock stock17_2 = new Stock();
+	    	  stock17_2.setBalanceNo("1712341234");
+	    	  stock17_2.setMember(member17);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock17_2.setFirmNm("NH투자증권");
+	    	  stock17_2.setStockNm("아시아나항공");
+	    	  stock17_2.setQty(1000);
+	    	  stock17_2.setValTrade(10900);
+	    	  stock17_2.setValCur(15500);
+	    	  stock17_2.setAssertType("주식");
+	    	  stock17_2.setIsuSrtCd("020560");
+	    	  stock17_2.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock17_2));
+	    	  
+	    	  
+	    	  //회원18
+	    	  Stock stock18_1 = new Stock();
+	    	  stock18_1.setBalanceNo("1812341234");
+	    	  stock18_1.setMember(member18);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock18_1.setFirmNm("삼성증권");
+	    	  stock18_1.setStockNm("삼성전자");
+	    	  stock18_1.setQty(600);
+	    	  stock18_1.setValTrade(48000);
+	    	  stock18_1.setValCur(85600);
+	    	  stock18_1.setAssertType("주식");
+	    	  stock18_1.setIsuSrtCd("005930");
+	    	  stock18_1.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock18_1));
+	    	  
+	    	  Stock stock18_2 = new Stock();
+	    	  stock18_2.setBalanceNo("1812341234");
+	    	  stock18_2.setMember(member18);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock18_2.setFirmNm("삼성증권");
+	    	  stock18_2.setStockNm("삼성전자우");
+	    	  stock18_2.setQty(500);
+	    	  stock18_2.setValTrade(49200);
+	    	  stock18_2.setValCur(77300);
+	    	  stock18_2.setAssertType("주식");
+	    	  stock18_2.setIsuSrtCd("005935");
+	    	  stock18_2.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock18_2));
+	    	  
+	    	  Stock stock18_3 = new Stock();
+	    	  stock18_3.setBalanceNo("1812341234");
+	    	  stock18_3.setMember(member18);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock18_3.setFirmNm("삼성증권");
+	    	  stock18_3.setStockNm("SK하이닉스");
+	    	  stock18_3.setQty(300);
+	    	  stock18_3.setValTrade(73000);
+	    	  stock18_3.setValCur(128500);
+	    	  stock18_3.setAssertType("주식");
+	    	  stock18_3.setIsuSrtCd("000660");
+	    	  stock18_3.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock18_3));
+	    	  
 	    	  
 	    	  
 	    	  Subscribe subscribe1_1 = new Subscribe();
