@@ -556,9 +556,9 @@ export default {
     
 
   }),
-  created(){
+  async created(){
     console.log("neighbor id: "+ this.$route.params.id);
-    axios.get('/api/member/search/' + this.$route.params.id)
+    await axios.get('/api/member/search/' + this.$route.params.id)
       .then(res => {
         console.log(res.data);
         this.name = res.data.name,
@@ -576,14 +576,14 @@ export default {
         console.log('err', err);
       })
 
-    axios.get('/api/stock/search/' + this.$route.params.id)
+    await axios.get('/api/stock/search/' + this.$route.params.id)
       .then(res => {
         const msg = res.data;
         this.Stock = msg;
         console.log(+ this.$route.params.id + " : " + this.Stock);
         for(var i=0; i<this.Stock.length; i++){
           this.Stock[i].valTrade = priceComma(this.Stock[i].valTrade);
-          console.log(findStock('000020'));
+          // console.log(findStock('000020'));
         }
       })
       .catch(err => {
