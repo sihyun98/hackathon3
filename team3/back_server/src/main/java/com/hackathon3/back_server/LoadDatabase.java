@@ -41,6 +41,7 @@ class LoadDatabase {
 	    	  member1.setSalary(5797);
 	    	  member1.setProperty(1316);
 	    	  member1.setProfile("나는야 파개미1");
+	    	  member1.setTotalEarning(2.45);
 	    	  log.info("preloading " + memberRepository.save(member1));
 	    	  
 	    	  Member member2 = new Member();
@@ -54,6 +55,7 @@ class LoadDatabase {
 	    	  member2.setSalary(8097);
 	    	  member2.setProperty(1864);
 	    	  member2.setProfile("나는야 파개미2");
+	    	  member2.setTotalEarning(-0.30);
 	    	  log.info("preloading " + memberRepository.save(member2));
 	    	  
 	    	  Member member3 = new Member();
@@ -67,6 +69,7 @@ class LoadDatabase {
 	    	  member3.setSalary(4351);
 	    	  member3.setProperty(1286);
 	    	  member3.setProfile("나는야 파개미3");
+	    	  member3.setTotalEarning(12.81);
 	    	  log.info("preloading " + memberRepository.save(member3));
 	    	  
 	    	  Member member4 = new Member();
@@ -80,6 +83,7 @@ class LoadDatabase {
 	    	  member4.setSalary(5135);
 	    	  member4.setProperty(1780);
 	    	  member4.setProfile("나는야 파개미4");
+	    	  member4.setTotalEarning(-36.43);
 	    	  log.info("preloading " + memberRepository.save(member4));
 
 	    	  Member member5 = new Member();
@@ -93,6 +97,7 @@ class LoadDatabase {
 	    	  member5.setSalary(4848);
 	    	  member5.setProperty(1800);
 	    	  member5.setProfile("나는야 파개미5");
+	    	  member5.setTotalEarning(25.00);
 	    	  log.info("preloading " + memberRepository.save(member5));
 
 	    	  Member member6 = new Member();
@@ -106,6 +111,7 @@ class LoadDatabase {
 	    	  member6.setSalary(5900);
 	    	  member6.setProperty(1700);
 	    	  member6.setProfile("나는야 파개미6");
+	    	  member6.setTotalEarning(3.03);
 	    	  log.info("preloading " + memberRepository.save(member6));
 	    	  
 	    	  Member member7 = new Member();
@@ -119,6 +125,7 @@ class LoadDatabase {
 	    	  member7.setSalary(4228);
 	    	  member7.setProperty(1245);
 	    	  member7.setProfile("나는야 파개미7");
+	    	  member7.setTotalEarning(10.67);
 	    	  log.info("preloading " + memberRepository.save(member7));
 	    	  
 	    	  Member member8 = new Member();
@@ -132,6 +139,7 @@ class LoadDatabase {
 	    	  member8.setSalary(6581);
 	    	  member8.setProperty(1629);
 	    	  member8.setProfile("나는야 파개미8");
+	    	  member8.setTotalEarning(10.07);
 	    	  log.info("preloading " + memberRepository.save(member8));
 	    	  
 	    	  Member member9 = new Member();
@@ -145,6 +153,7 @@ class LoadDatabase {
 	    	  member9.setSalary(0);
 	    	  member9.setProperty(89);
 	    	  member9.setProfile("나는야 파개미9");
+	    	  member9.setTotalEarning(-20.54);
 	    	  log.info("preloading " + memberRepository.save(member9));
 	    	  
 	    	  Member member10 = new Member();
@@ -158,6 +167,7 @@ class LoadDatabase {
 	    	  member10.setSalary(7767);
 	    	  member10.setProperty(692);
 	    	  member10.setProfile("나는야 파개미10");
+	    	  member10.setTotalEarning(12.50);
 	    	  log.info("preloading " + memberRepository.save(member10));
 			
 
@@ -172,6 +182,7 @@ class LoadDatabase {
 	    	  member11.setSalary(7126);
 	    	  member11.setProperty(11300);
 	    	  member11.setProfile("나는야 초개미1");
+	    	  member11.setTotalEarning(32.94);
 	    	  log.info("preloading " + memberRepository.save(member11));
 
 	    	  Member member12 = new Member();
@@ -185,6 +196,7 @@ class LoadDatabase {
 	    	  member12.setSalary(7087);
 	    	  member12.setProperty(3287);
 	    	  member12.setProfile("나는야 초개미2");
+	    	  member12.setTotalEarning(41.79);
 	    	  log.info("preloading " + memberRepository.save(member12));
 
 	    	  Member member13 = new Member();
@@ -198,6 +210,7 @@ class LoadDatabase {
 	    	  member13.setSalary(4870);
 	    	  member13.setProperty(5348);
 	    	  member13.setProfile("나는야 초개미3");
+	    	  member13.setTotalEarning(11.93);
 			  log.info("preloading " + memberRepository.save(member13));
 
 	    	  Member member14 = new Member();
@@ -211,6 +224,7 @@ class LoadDatabase {
 	    	  member14.setSalary(4740);
 	    	  member14.setProperty(6034);
 	    	  member14.setProfile("나는야 초개미4");
+	    	  member14.setTotalEarning(62.76);
 	    	  log.info("preloading " + memberRepository.save(member14));
 
 	    	  Member member15 = new Member();
@@ -224,6 +238,7 @@ class LoadDatabase {
 	    	  member15.setSalary(7545);
 	    	  member15.setProperty(4280);
 	    	  member15.setProfile("나는야 초개미5");
+	    	  member15.setTotalEarning(94.55);
 	    	  log.info("preloading " + memberRepository.save(member15));
 
 	    	  Member member16 = new Member();
@@ -237,6 +252,7 @@ class LoadDatabase {
 	    	  member16.setSalary(3635);
 	    	  member16.setProperty(22600);
 	    	  member16.setProfile("나는야 노개미1");
+	    	  member16.setTotalEarning(16.02);
 	    	  log.info("preloading " + memberRepository.save(member16));
 
 	    	  Member member17 = new Member();
@@ -250,6 +266,7 @@ class LoadDatabase {
 	    	  member17.setSalary(6574);
 	    	  member17.setProperty(7630);
 	    	  member17.setProfile("나는야 노개미2");
+	    	  member17.setTotalEarning(87.47);
 	    	  log.info("preloading " + memberRepository.save(member17));
 
 	    	  Member member18 = new Member();
@@ -263,6 +280,7 @@ class LoadDatabase {
 	    	  member18.setSalary(3750);
 	    	  member18.setProperty(12856);
 	    	  member18.setProfile("나는야 빨개미");
+	    	  member18.setTotalEarning(70.73);
 	    	  log.info("preloading " + memberRepository.save(member18));
 
 

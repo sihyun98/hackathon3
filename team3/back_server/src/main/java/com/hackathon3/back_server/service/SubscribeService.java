@@ -13,6 +13,8 @@ import com.hackathon3.back_server.dto.member.MemberSaveRequestDto;
 import com.hackathon3.back_server.dto.member.MemberSaveResponseDto;
 import com.hackathon3.back_server.dto.member.MemberSearchResponseDto;
 import com.hackathon3.back_server.dto.stock.StockSearchResponseDto;
+import com.hackathon3.back_server.dto.subscribe.SubscribeExistRequestDto;
+import com.hackathon3.back_server.dto.subscribe.SubscribeExistResponseDto;
 import com.hackathon3.back_server.dto.subscribe.SubscribeSaveRequestDto;
 import com.hackathon3.back_server.dto.subscribe.SubscribeSaveResponseDto;
 import com.hackathon3.back_server.dto.subscribe.SubscribeSearchResponseDto;
@@ -118,5 +120,25 @@ public class SubscribeService {
 		}
 		
 		return subscribeSearchResponseDto;
+	}
+	
+	// GET - 이미 구독중인지 확인
+	@Transactional(readOnly = true)
+	public SubscribeExistResponseDto check(SubscribeExistRequestDto requestDto) {
+		
+		// 회원 정보를 저장할 배열
+		SubscribeExistResponseDto dto = new SubscribeExistResponseDto();
+		Subscribe subscriber = subscribeRepositorySupport.check(requestDto.getMy_id(), requestDto.getSubscriber_id());
+		
+		if(subscriber == null) {
+			dto.setCode("FAIL");
+			dto.setMessage("구독 가능합니다.");			
+		}
+		else {
+			dto.setCode("OK");
+			dto.setMessage("이미 구독중입니다.");
+		}
+		
+		return dto;
 	}
 }

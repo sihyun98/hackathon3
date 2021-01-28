@@ -31,6 +31,8 @@ public class Member {
 	private int property;
 	private String profile;
 	
+	private double totalEarning;
+	
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "member",cascade = CascadeType.ALL)
 	private List<Stock> stocks = new ArrayList<>();
 

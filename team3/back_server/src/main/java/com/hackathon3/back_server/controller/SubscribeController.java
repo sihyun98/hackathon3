@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.hackathon3.back_server.dto.member.MemberSaveRequestDto;
 import com.hackathon3.back_server.dto.member.MemberSaveResponseDto;
 import com.hackathon3.back_server.dto.stock.StockSearchResponseDto;
+import com.hackathon3.back_server.dto.subscribe.SubscribeExistRequestDto;
+import com.hackathon3.back_server.dto.subscribe.SubscribeExistResponseDto;
 import com.hackathon3.back_server.dto.subscribe.SubscribeSaveRequestDto;
 import com.hackathon3.back_server.dto.subscribe.SubscribeSaveResponseDto;
 import com.hackathon3.back_server.dto.subscribe.SubscribeSearchResponseDto;
@@ -37,6 +39,12 @@ public class SubscribeController {
 	@GetMapping("/api/subscribe/all")
 	public List<SubscribeSearchResponseDto> search(){
 		return subscribeService.search();
+	}
+	
+	// SEARCH - check if subscribed
+	@PostMapping("/api/subscribe/check")
+	public SubscribeExistResponseDto check(@RequestBody SubscribeExistRequestDto requestDto){
+		return subscribeService.check(requestDto);
 	}
 
 }
