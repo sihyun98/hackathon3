@@ -203,7 +203,7 @@
                 </v-list-item-avatar>
                 <v-list-item-content>                    
                     <v-list-item-subtitle>총 자산</v-list-item-subtitle>
-                    <v-list-item-title>2,000,000원</v-list-item-title>                    
+                    <v-list-item-title>{{ totalProperty }}원</v-list-item-title>                    
                 </v-list-item-content>
                 
               </v-list-item>
@@ -228,7 +228,7 @@
                 </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-subtitle>손익</v-list-item-subtitle>
-                  <v-list-item-title>1,000,000원</v-list-item-title>
+                  <v-list-item-title>{{ totalProfit }}원</v-list-item-title>
                   <!-- <v-list-item-subtitle>Incurable</v-list-item-subtitle> -->
                 </v-list-item-content>
               </v-list-item>
@@ -253,7 +253,7 @@
                 </v-list-item-avatar>
                 <v-list-item-content>
                   <v-list-item-subtitle>수익률</v-list-item-subtitle>
-                  <v-list-item-title>50%</v-list-item-title>
+                  <v-list-item-title>{{ totalEarningRate }}%</v-list-item-title>
                   <!-- <v-list-item-subtitle>Examiniations</v-list-item-subtitle> -->
                 </v-list-item-content>
               </v-list-item>
@@ -556,7 +556,10 @@ export default {
     salary: '',
     property: '',
     profile: '',   
-    
+    totalProperty: 0,
+    totalProfit: 0,
+    totalEarningRate: 0,
+    total: 0,
 
   }),
   async created(){
@@ -585,9 +588,19 @@ export default {
         this.Stock = msg;
         console.log(+ this.$route.params.id + " : " + this.Stock);
         for(var i=0; i<this.Stock.length; i++){
+          this.totalProperty += this.Stock[i].valEvalu;
+          this.totalProfit += this.Stock[i].profit;
+          this.total += this.Stock[i].valTrade * this.Stock[i].qty;
           this.Stock[i].valTrade = priceComma(this.Stock[i].valTrade);
+          this.Stock[i].valCur = priceComma(this.Stock[i].valCur);
+          this.Stock[i].valEvalu = priceComma(this.Stock[i].valEvalu);
+          this.Stock[i].profit = priceComma(this.Stock[i].profit);
           // console.log(findStock('000020'));
         }
+        this.totalEarningRate = (this.totalProfit / this.total) * 100;
+        this.totalEarningRate = this.totalEarningRate.toFixed(2);
+        this.totalProperty = priceComma(this.totalProperty);
+        this.totalProfit = priceComma(this.totalProfit);
       })
       .catch(err => {
         console.log('err', err);
