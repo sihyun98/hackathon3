@@ -178,8 +178,9 @@
                                     <img src="../assets/crown1.png">
                                 </v-list-item-avatar>
                                 <v-list-item-content>                    
-                                    <v-list-item-subtitle>총 자산</v-list-item-subtitle>
-                                    <v-list-item-title>{{ totalProperty }}원</v-list-item-title>                    
+                                    
+                                    <v-list-item-title>이세연</v-list-item-title>
+                                    <v-list-item-subtitle>20대 금융권 8천만 단타</v-list-item-subtitle>                    
                                 </v-list-item-content>
                                 
                             </v-list-item>
@@ -204,8 +205,8 @@
                                     <img src="../assets/crown2.png">
                                 </v-list-item-avatar>
                                 <v-list-item-content>                    
-                                    <v-list-item-subtitle>총 자산</v-list-item-subtitle>
-                                    <v-list-item-title>{{ totalProperty }}원</v-list-item-title>                    
+                                    <v-list-item-title>이화수</v-list-item-title>
+                                    <v-list-item-subtitle>50대 대기업임원 2억 위험중립</v-list-item-subtitle>                    
                                 </v-list-item-content>
                                 
                             </v-list-item>
@@ -230,8 +231,8 @@
                                     <img src="../assets/crown3.png">
                                 </v-list-item-avatar>
                                 <v-list-item-content>                    
-                                    <v-list-item-subtitle>총 자산</v-list-item-subtitle>
-                                    <v-list-item-title>{{ totalProperty }}원</v-list-item-title>                    
+                                    <v-list-item-title>우민우</v-list-item-title>
+                                    <v-list-item-subtitle>20대 학생 100만 가치투자</v-list-item-subtitle>                    
                                 </v-list-item-content>
                                 
                             </v-list-item>
@@ -248,7 +249,7 @@
             <v-flex class="mt-12">
                 <v-list>
                 <v-list-item>
-                    <v-list-item-title class="orange--text text--darken-3">옆집 개미</v-list-item-title>
+                    <v-list-item-title class="orange--text text--darken-3">전체 옆집 개미</v-list-item-title>
                 </v-list-item>
                 </v-list>
 
@@ -345,16 +346,19 @@ export default {
     search: '',
     headers: [
       {
-        text: '순위',
+        text: '아이디',
         align: 'start',
         sortable: false,
-        value: 'ranking',
+        value: 'id',
         align: "center",
       },
     //   { text: '아이디', value: 'id', align: "center"},
       { text: '이름', value: 'name', align: "center"},
       { text: '레벨', value: 'grade', align: "center" },
+      { text: '나이', value: 'age', align: "center" },   
+      { text: '직업', value: 'job', align: "center" },   
       { text: '투자성향', value: 'investOpt', align: "center" },    
+      { text: '순위', value: 'ranking', align: "center" },   
       { text: '수익률', value: 'earningRate', align: "center" },
       
     ],
