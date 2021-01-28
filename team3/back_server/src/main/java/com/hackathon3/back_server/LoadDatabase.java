@@ -402,12 +402,12 @@ class LoadDatabase {
 	    	  stock2_5.setMember(member2);
 //	    	  stock1_1.setMemberId(member1.getId());
 	    	  stock2_5.setFirmNm("키움증권");
-	    	  stock2_5.setStockNm("호텔신라");
+	    	  stock2_5.setStockNm("신풍제약");
 	    	  stock2_5.setQty(3);
 	    	  stock2_5.setValTrade(160000);
-	    	  stock2_5.setValCur(170000);
+	    	  stock2_5.setValCur(89000);
 	    	  stock2_5.setAssertType("주식");
-	    	  stock2_5.setIsuSrtCd("");
+	    	  stock2_5.setIsuSrtCd("019170");
 	    	  stock2_5.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock2_5));
 	    	  
@@ -554,12 +554,12 @@ class LoadDatabase {
 	    	  stock10_1.setMember(member10);
 //	    	  stock1_1.setMemberId(member1.getId());
 	    	  stock10_1.setFirmNm("NH투자증권");
-	    	  stock10_1.setStockNm("그린플러스");
-	    	  stock10_1.setQty(500);
-	    	  stock10_1.setValTrade(13400);
-	    	  stock10_1.setValCur(13850);
+	    	  stock10_1.setStockNm("두산퓨얼셀");
+	    	  stock10_1.setQty(200);
+	    	  stock10_1.setValTrade(54400);
+	    	  stock10_1.setValCur(61200);
 	    	  stock10_1.setAssertType("주식");
-	    	  stock10_1.setIsuSrtCd("");
+	    	  stock10_1.setIsuSrtCd("336260");
 	    	  stock10_1.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock10_1));
 	    	  
@@ -596,21 +596,21 @@ class LoadDatabase {
 	    	  
 	    	  //회원12
 	    	  Stock stock12_1 = new Stock();
-	    	  stock12_1.setBalanceNo("1012341234");
+	    	  stock12_1.setBalanceNo("1212341234");
 	    	  stock12_1.setMember(member12);
 //	    	  stock1_1.setMemberId(member1.getId());
 	    	  stock12_1.setFirmNm("키움증권");
-	    	  stock12_1.setStockNm("카카오");
-	    	  stock12_1.setQty(100);
-	    	  stock12_1.setValTrade(340000);
-	    	  stock12_1.setValCur(450000);
+	    	  stock12_1.setStockNm("일양약품");
+	    	  stock12_1.setQty(1000);
+	    	  stock12_1.setValTrade(35500);
+	    	  stock12_1.setValCur(51300);
 	    	  stock12_1.setAssertType("주식");
-	    	  stock12_1.setIsuSrtCd("035720");
+	    	  stock12_1.setIsuSrtCd("007570");
 	    	  stock12_1.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock12_1));
 	    	  
 	    	  Stock stock12_2 = new Stock();
-	    	  stock12_2.setBalanceNo("1012341234");
+	    	  stock12_2.setBalanceNo("1212341234");
 	    	  stock12_2.setMember(member12);
 //	    	  stock1_1.setMemberId(member1.getId());
 	    	  stock12_2.setFirmNm("키움증권");
@@ -622,6 +622,50 @@ class LoadDatabase {
 	    	  stock12_2.setIsuSrtCd("035720");
 	    	  stock12_2.setIsuKorNm("");
 	    	  log.info("Preloading " + stockRepository.save(stock12_2));
+	    	  
+	    	  
+	    	  //회원13
+	    	  Stock stock13_1 = new Stock();
+	    	  stock13_1.setBalanceNo("1312341234");
+	    	  stock13_1.setMember(member13);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock13_1.setFirmNm("삼성증권");
+	    	  stock13_1.setStockNm("NAVER");
+	    	  stock13_1.setQty(500);
+	    	  stock13_1.setValTrade(310000);
+	    	  stock13_1.setValCur(340000);
+	    	  stock13_1.setAssertType("주식");
+	    	  stock13_1.setIsuSrtCd("007570");
+	    	  stock13_1.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock13_1));
+	    	  
+	    	  Stock stock13_2 = new Stock();
+	    	  stock13_2.setBalanceNo("1312341234");
+	    	  stock13_2.setMember(member13);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock13_2.setFirmNm("삼성증권");
+	    	  stock13_2.setStockNm("현대에너지솔루션");
+	    	  stock13_2.setQty(400);
+	    	  stock13_2.setValTrade(31200);
+	    	  stock13_2.setValCur(39900);
+	    	  stock13_2.setAssertType("주식");
+	    	  stock13_2.setIsuSrtCd("035420");
+	    	  stock13_2.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock13_2));
+	    	  
+	    	  Stock stock13_3 = new Stock();
+	    	  stock13_3.setBalanceNo("1312341234");
+	    	  stock13_3.setMember(member13);
+//	    	  stock1_1.setMemberId(member1.getId());
+	    	  stock13_3.setFirmNm("삼성증권");
+	    	  stock13_3.setStockNm("두산퓨얼셀");
+	    	  stock13_3.setQty(500);
+	    	  stock13_3.setValTrade(52000);
+	    	  stock13_3.setValCur(61200);
+	    	  stock13_3.setAssertType("주식");
+	    	  stock13_3.setIsuSrtCd("336260");
+	    	  stock13_3.setIsuKorNm("");
+	    	  log.info("Preloading " + stockRepository.save(stock13_3));
 	    	  
 	    	  
 	    	  
