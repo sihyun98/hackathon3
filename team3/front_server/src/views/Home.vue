@@ -22,7 +22,7 @@
                     <!-- 순위, 구독자, 수익률: TEXT  -->
                     <v-list-item-title class="orange--text text--darken-3">순위</v-list-item-title>
                     <v-list-item-title class="orange--text text--darken-3">구독자</v-list-item-title>
-                    <v-list-item-title class="orange--text text--darken-3">수익률</v-list-item-title>
+                    <v-list-item-title class="orange--text text--darken-3">3개월 수익률</v-list-item-title>
                   </v-list-item>
                   <v-list-item class="mt-n5">
                     <!-- 순위: 계산, 구독자: 구독 DB, 수익률: 계산 -->
@@ -435,6 +435,7 @@ import priceComma from '../priceComma'
 // import findStock from '../findStock';
 // import findStock from '../findStock'
 import PieChart from '../components/PieChart'
+
 import XLSX from 'xlsx'
 
 export default {
@@ -474,8 +475,10 @@ export default {
     totalProfit: 0,
     totalEarningRate: 0,
     total: 0,
+
   }),
   async created(){
+    // this.renderChart(this.chartData, this.options)
     console.log("userid : " + this.$session.get('user_no'));
     if(this.$route.params.id == null){
       this.userId = 1;
@@ -583,13 +586,14 @@ export default {
       XLSX.writeFile(wb, '내 보유 주식.xlsx');
     },
   },
+  // mounted() {
+  //   this.renderChart(this.chartData, this.options)
+  // }
   components: {
     PieChart
   }
 }
 </script>
-
-
 
 <style scoped>
 .rounded {

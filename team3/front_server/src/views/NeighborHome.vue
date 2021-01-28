@@ -445,7 +445,7 @@ export default {
 import axios from 'axios'
 import priceComma from '../priceComma'
 import findStock from '../findStock'
-import PieChart from '../components/PieChart'
+import PieChart from '../components/PieChart2'
 import XLSX from 'xlsx'
 
 export default {
@@ -496,6 +496,8 @@ export default {
     }
   },
   async created(){
+    // this.$session.set('neighbor_id', this.$route.params.id)
+    // console.log("neighbor id : " + this.$session.get(neighbor_id))
     // console.log("neighbor id: "+ this.$route.params.id);
     this.form.my_id = this.$session.get('user_no');
     this.form.subscriber_id = this.$route.params.id;

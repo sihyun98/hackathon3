@@ -22,7 +22,7 @@
                     <!-- 순위, 구독자, 수익률: TEXT  -->
                     <v-list-item-title class="orange--text text--darken-3">순위</v-list-item-title>
                     <v-list-item-title class="orange--text text--darken-3">구독자</v-list-item-title>
-                    <v-list-item-title class="orange--text text--darken-3">수익률</v-list-item-title>
+                    <v-list-item-title class="orange--text text--darken-3">3개월 수익률</v-list-item-title>
                   </v-list-item>
                   <v-list-item class="mt-n5">
                     <!-- 순위: 계산, 구독자: 구독 DB, 수익률: 계산 -->
