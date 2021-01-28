@@ -1,10 +1,12 @@
 package com.hackathon3.back_server.service;
 
+import java.io.IOException;
 import java.util.*;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.hackathon3.back_server.api.KoscomApi;
 import com.hackathon3.back_server.domain.Member;
 import com.hackathon3.back_server.domain.Stock;
 import com.hackathon3.back_server.dto.stock.StockSearchResponseDto;
@@ -43,10 +45,21 @@ public class StockService {
 				dto.setStockNm(stock.getStockNm());
 				dto.setQty(stock.getQty());
 				dto.setValTrade(stock.getValTrade());
-				dto.setEarningRate(stock.getEarningRate());
+//				dto.setEarningRate(stock.getEarningRate());
 				dto.setAssertType(stock.getAssertType());
 				dto.setIsuKorNm(stock.getIsuKorNm());
 				dto.setIsuSrtCd(stock.getIsuSrtCd());
+				
+				try {
+					dto.setValCur(KoscomApi.currentPrice(stock.getIsuSrtCd()));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				dto.setEarningRate((dto.getValCur() - stock.getValTrade()) * 100 / stock.getValTrade());
+				dto.setValEvalu(dto.getValTrade() * dto.getQty());
+				dto.setProfit(dto.getValCur() - dto.getValTrade());
 				
 				stockSearchResponseDto.add(dto);
 				

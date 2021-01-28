@@ -402,7 +402,7 @@ class LoadDatabase {
 	    	  stock2_5.setMember(member2);
 //	    	  stock1_1.setMemberId(member1.getId());
 	    	  stock2_5.setFirmNm("키움증권");
-	    	  stock2_5.setStockNm("씨젠");
+	    	  stock2_5.setStockNm("호텔신라");
 	    	  stock2_5.setQty(3);
 	    	  stock2_5.setValTrade(160000);
 	    	  stock2_5.setValCur(170000);

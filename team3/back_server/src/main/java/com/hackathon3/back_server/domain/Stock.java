@@ -27,6 +27,8 @@ public class Stock {
 	private int valCur; // 현재가
 	private double earningRate; // 수익률
 	private String assertType;
+	private int valEvalu;
+	private int profit;
 	
 	private String isuKorNm;
 	

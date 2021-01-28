@@ -88,7 +88,7 @@ public class MemberService {
 			dto.setSalary(member.getSalary());
 			dto.setProperty(member.getProperty());
 			dto.setProfile(member.getProfile());
-			
+					
 			memberSearchResponseDto.add(dto);
 			
 		}
