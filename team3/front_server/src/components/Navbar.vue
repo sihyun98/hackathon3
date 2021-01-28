@@ -23,7 +23,7 @@
                         <v-list-item-subtitle align="center">우리집</v-list-item-subtitle>
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item router to="/SubscribeList">
+                <v-list-item @click='moveRankingLsit'>
                     <v-list-item-content>
                         <v-icon class="mb-2">fas fa-search</v-icon> 
                         <v-list-item-subtitle align="center">옆집</v-list-item-subtitle>
@@ -65,6 +65,15 @@ export default {
         name: 'Home',
         params: {"id" : 1}
         });
+        
+    },
+        moveRankingLsit(){
+            // console.log("index : " + index);
+            this.$router.push({
+            name: 'RankingList',
+            params: {"id" : 1}
+            });
+        
     }
     },
 }

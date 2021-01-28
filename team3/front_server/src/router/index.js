@@ -7,6 +7,7 @@ import SignUp from "../views/SignUp.vue";
 import Subscribe from "../views/Subscribe.vue";
 import SubscribeList from "../views/SubscribeList.vue";
 import NeighborHome from "../views/NeighborHome.vue";
+import RankingList from "../views/RankingList.vue";
 
 
 Vue.use(VueRouter);
@@ -54,6 +55,12 @@ const routes = [
     name: "NeighborHome",
     props: true,
     component: NeighborHome
+  },
+  {
+    path: "/RankingList",
+    name: "RankingList",
+    props: true,
+    component: RankingList
   },
   {
     path: "/about",
