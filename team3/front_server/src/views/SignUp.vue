@@ -119,10 +119,16 @@
                 <span>Refresh form</span>
               </v-tooltip>
             </v-slide-x-reverse-transition> -->
-            <v-btn
+            <!-- <v-btn
               color="orange darken-3"
               text
               @click="submit"
+            >
+              가입하기
+            </v-btn> -->
+            <v-btn
+              color="orange darken-3"
+              text
             >
               가입하기
             </v-btn>
@@ -192,6 +198,9 @@ import axios from "axios"
 
           axios.post('/api/member', this.form)
           .then(res => {
+              if(res.data.code == "OK"){
+                location.href = "signin";
+              }
               console.log(res);
           })
 

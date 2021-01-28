@@ -39,6 +39,12 @@
               >
                 회원가입
             </v-btn>
+            <!-- <v-btn 
+              color="orange darken-3"
+              text
+              >
+                회원가입
+            </v-btn> -->
             <v-spacer></v-spacer>
             <!-- <v-btn color="primary" @click="signIn">로그인</v-btn> -->
             <v-btn

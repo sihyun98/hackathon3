@@ -449,7 +449,7 @@ import XLSX from 'xlsx'
 export default {
   data: () => ({
 //테이블
-    userId: 1,
+    userId: 0,
     search: '',
     headers: [
       {
