@@ -63,7 +63,7 @@ export default {
         // console.log("index : " + index);
         this.$router.push({
         name: 'Home',
-        params: {"id" : 1}
+        // params: {"id" : 1}
         });
         
     },
@@ -71,7 +71,7 @@ export default {
             // console.log("index : " + index);
             this.$router.push({
             name: 'RankingList',
-            params: {"id" : 1}
+            // params: {"id" : 1}
             });
         
     }
